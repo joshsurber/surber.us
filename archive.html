@@ -2,17 +2,17 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts offset:5 %}
-    <article class="post">
+{% for post in site.posts offset:5 %}
+<article>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+    <header>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+    </header>
 
-      <div class="entry">
+    <content>
         {{ post.excerpt }}
-      </div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </content>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+</article>
+{% endfor %}
