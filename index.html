@@ -2,18 +2,18 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts limit:5 %}
-    <article class="post">
+{% for post in site.posts limit:5 %}
+    <article>
+    <header>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <time>{{ post.date | date: "%B %e, %Y" }}</time>
+    </header>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
+    <content>
         {{ post.excerpt }}
-      </div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </content>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
-  {% endfor %}
-</div>
+{% endfor %}
 <div><a href="archive">Archive</a></div>

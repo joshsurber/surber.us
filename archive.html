@@ -2,11 +2,17 @@
 layout: default
 ---
 
-<ul class="posts">
-  {% for post in site.posts %}
+{% for post in site.posts offset:5 %}
+<article>
 
-      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    <header>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+    </header>
 
-    </article>
-  {% endfor %}
-</div>
+    <content>
+        {{ post.excerpt }}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </content>
+
+</article>
+{% endfor %}
