@@ -3,17 +3,15 @@ layout: default
 ---
 
 {% for post in site.posts limit:5 %}
-    <article>
+<article>
     <header>
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-        <time>{{ post.date | date: "%B %e, %Y" }}</time>
+        <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%B %e, %Y" }}</time>
     </header>
 
-    <content>
-        {{ post.excerpt }}
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </content>
+    {{ post.excerpt }}
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
 
-    </article>
+</article>
 {% endfor %}
 <div><a href="archive">Archive</a></div>

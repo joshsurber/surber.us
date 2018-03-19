@@ -3,13 +3,21 @@
 @import "reset";
 @import "variables";
 
-#header {
+header {
 }
-#nav {
+nav {
 }
-#content {
+main {
+    article{
+        header{
+            h1{
+            }
+            time {
+            }
+        }
+        }
 }
-#footer {
+footer {
 }
 
 @import "highlights";
