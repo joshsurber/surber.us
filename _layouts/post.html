@@ -11,5 +11,9 @@ layout: default
 
     {{ content }}
 
-  {% include disqus.html %}
+    <footer>
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ page.title | url_escape }}" data-size="large">Tweet</a>
+    </footer>
+
+    {% include disqus.html %}
 </article>

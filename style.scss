@@ -3,22 +3,29 @@
 @import "reset";
 @import "variables";
 
-header {
-}
-nav {
-}
-main {
-    article{
-        header{
-            h1{
+body{
+    >header {
+        background: black;
+        color: white; 
+        a{color:white}
+    }
+    >nav {
+    }
+    >main {
+        >article{
+            >header{
+                >h1{
+                }
+                >time {
+                }
             }
-            time {
+            >footer {
             }
         }
-        }
-}
-footer {
+    }
+    >footer {
+    }
 }
 
-@import "highlights";
-@import "svg-icons";
+// @import "highlights";
+// @import "svg-icons";
