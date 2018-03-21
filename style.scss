@@ -5,14 +5,18 @@
 
 body{
     >header {
+        grid-area: header;
         background: black;
         color: white; 
         a{color:white}
     }
     >nav {
+        grid-area: nav;
     }
     >main {
+        grid-area: main;
         >article{
+            margin: 2em 20%;
             >header{
                 >h1{
                 }
@@ -23,9 +27,23 @@ body{
             }
         }
     }
-    >footer {
+    >aside {
+        grid-area: aside;
     }
+    >footer {
+        grid-area: footer;
+    }
+    display: grid;
+    grid-template-columns: auto 20% 20%;
+    grid-template-areas: 
+        "header header header"
+        "main main aside"
+        "footer  nav aside";
+    font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+    line-height:1.5em;
+    color: #292F33;
 }
 
-// @import "highlights";
-// @import "svg-icons";
+//*
+@import "highlights";
+@import "svg-icons";//*/

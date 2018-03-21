@@ -9,7 +9,7 @@ layout: default
         <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%B %e, %Y" }}</time>
     </header>
 
-    {{ post.excerpt }}
+    {{ post.content }}
     <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
 
 </article>
