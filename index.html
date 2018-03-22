@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% for post in site.posts limit:5 %}
+{% for post in site.posts limit:7 %}
 <article>
     <header>
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
@@ -10,8 +10,6 @@ layout: default
     </header>
 
     {{ post.content }}
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
 
 </article>
 {% endfor %}
-<div><a href="archive">Archive</a></div>

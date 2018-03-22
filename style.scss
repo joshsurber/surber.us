@@ -8,29 +8,30 @@ body{
     >header {
         grid-area: header;
         color: white; 
-        padding-top: 242px;
+        padding: 247px 5px 5px;
         background: black url({{ site.baseurl }}/images/badwolf.jpg) top center no-repeat;// 1260x242
-        font-size: 18px;
+        font-size: 24px;
         font-weight: bold;
-        a{color:white}
+        a{color:white;text-decoration:none;}
     }
     >nav {
         grid-area: nav;
+        text-align: center;
     }
     >main {
         grid-area: main;
-        >article{
+        article{
             margin: 2em 20%;
-            >header{
-                >h1{
+            header{
+                h1{
                     font-size: 18px;
                     font-weight: bold;
                     a{text-decoration:none}
                 }
-                >time {
+                time {
                 }
             }
-            >footer {
+            footer {
             }
         }
     }
@@ -39,13 +40,14 @@ body{
     }
     >footer {
         grid-area: footer;
+        text-align: center;
     }
     display: grid;
-    grid-template-columns: auto 20% 20%;
+    grid-template-columns: auto 20%;
     grid-template-areas: 
-        "header header header"
-        "main main aside"
-        "footer  nav aside";
+        "header header"
+        "main aside"
+        "nav footer";
     font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
     font-size: 16px;
     line-height: 1.5em;
