@@ -6,12 +6,12 @@ layout: default
 
     <header>
         <h1><a href="{{ post.url }}" rel="permalink">{{ page.title }}</a></h1>
+        Posted <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%B %e, %Y" }}</time>
     </header>
 
     {{ content }}
 
     <footer>
-        Posted <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%B %e, %Y" }}</time>
         <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ page.title | url_escape }}" data-size="large">Tweet</a>
     </footer>
 
