@@ -1,17 +1,7 @@
 ---
-id: 167
 title: Code Ignitor
 date: 2007-01-09T12:00:00+00:00
-author: josh
 layout: post
-guid: http://surber.us/?p=167
-permalink: /2007/01/code-ignitor/
-btc_comment_counts:
-  - 's:6:"a:0:{}";'
-btc_comment_summary:
-  - 's:6:"a:0:{}";'
-tmac_last_id:
-  - "152954849942708224"
 categories:
   - Blog
 tags:
