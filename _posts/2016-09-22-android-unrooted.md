@@ -1,10 +1,10 @@
 ---
 id: 1357
 title: Android unrooted
-date: 2016-09-22T02:29:55+00:00
+date: 2016-09-22T02:29:55.000Z
 author: josh
 layout: post
-guid: http://surber.us/?p=1357
+guid: 'http://surber.us/?p=1357'
 permalink: /2016/09/android-unrooted/
 categories:
   - Blog
@@ -14,6 +14,7 @@ tags:
   - geeky
   - open source
   - root
+published: true
 ---
 <blockquote class="twitter-tweet" data-width="474">
   <p lang="en" dir="ltr">
@@ -24,8 +25,6 @@ tags:
     &mdash; Josh Surber (<a href="https://twitter.com/intent/user?screen_name=JoshSurber">@JoshSurber</a>) <a href="https://twitter.com/JoshSurber/status/776496768355700736">September 15, 2016</a>
   </p>
 </blockquote>
-
-
 
 When I got my first modern Android phone, a Nexus 4, back in 2012, the first thing I did was root it. I had owned a bunch of cheap no-name Android phones before, but none of them had available roots, and were all locked up pretty tightly. My N4 was the first phone I had that made rooting easy. Since then, I have owned a N5, N6, and N6P. Every single one, I rooted as soon as I turned it on. However, after getting the upgrade to the latest Android version, Nougat, I unrooted my phone for the first time in years. I have been running without root for over a week and don&#8217;t miss it at all.
 
