@@ -1,11 +1,7 @@
 ---
-id: 1357
 title: Android unrooted
 date: 2016-09-22T02:29:55.000Z
-author: josh
 layout: post
-guid: 'http://surber.us/?p=1357'
-permalink: /2016/09/android-unrooted/
 categories:
   - Blog
 tags:
@@ -14,7 +10,6 @@ tags:
   - geeky
   - open source
   - root
-published: true
 ---
 <blockquote class="twitter-tweet" data-width="474">
   <p lang="en" dir="ltr">
