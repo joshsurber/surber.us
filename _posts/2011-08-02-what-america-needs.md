@@ -1,15 +1,7 @@
 ---
-id:
 title: What America needs
 date: 2011-08-02 22:44:00
-author:
 layout: post
-guid:
-permalink:
-tmac_last_id:
-  - '152954834679631872'
-dsq_thread_id:
-  - '470908954'
 categories:
   - Blog
 tags:
@@ -19,11 +11,7 @@ tags:
   - politics
 ---
 
-<div class="zemanta-img" style="margin: 1em; display: block;">
-  <figure style="max-width: 300px" class="wp-caption alignright"><a href="http://commons.wikipedia.org/wiki/File:WhiteHouseSouthFacade.JPG"><img title="South façade of the White House, the executive..." alt="South façade of the White House, the executive..." width="300" height="219" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/WhiteHouseSouthFacade.JPG/300px-WhiteHouseSouthFacade.JPG" /></a><figcaption class="wp-caption-text">Image via Wikipedia</figcaption></figure>
-</div>
-
-America is in need of a single term president. We need someone who will get into office and do all sorts of unpopular stuff, [approval ratings](http://en.wikipedia.org/wiki/United_States_presidential_approval_rating "United States presidential approval rating"){: .zem_slink} be damned. We need someone who will put policies into effect that sacrifice the short term to help the long term. We need someone who is okay being the villain.<!--more-->
+America is in need of a single term president. We need someone who will get into office and do all sorts of unpopular stuff, [approval ratings](http://en.wikipedia.org/wiki/United_States_presidential_approval_rating "United States presidential approval rating"){: .zem_slink} be damned. We need someone who will put policies into effect that sacrifice the short term to help the long term. We need someone who is okay being the villain.<!--more-->
 
 Most of the problems that affect the country (and most of which extend into affecting the entire world) right now are thirty years old or older, and fixing them will cause bad consequences in the short term, at the expense of a long term payoff. No one wants to do anything about any of them, because doing so will kill any chance of a re-election. No party will let their candidate do anything, because it would make the party unpopular.
 
@@ -46,7 +34,3 @@ The military should be at home unless they are needed. We do not need to send ou
 The president who can do all this will not see his approval ratings get out of the teens, and will in his own time be seen as the worst president in the nation’s history. But, in twenty or thirty years, people will look back and realize that this was the president who saved our country.
 
 > “Because he’s the hero [America] deserves, but not the one it needs right now. So, we’ll hunt him, because he can take it. Because he’s not our hero. He’s a silent guardian. A watchful protector. A Dark Knight.”
-
-<div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">
-  <img class="zemanta-pixie-img" style="border: none; float: right;" alt="" src="http://img.zemanta.com/pixy.gif?x-id=19490f5d-51c3-4256-b3dc-ddd8c0db072b" />
-</div>
