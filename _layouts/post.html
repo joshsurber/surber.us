@@ -5,8 +5,8 @@ layout: default
 <article>
 
     <header>
-        <h1><a href="{{ post.url }}" rel="permalink">{{ page.title }}</a></h1>
-        Posted <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%B %e, %Y" }}</time>
+        <h1><a href="{{ page.url }}" rel="permalink">{{ page.title }}</a></h1>
+        Posted <time datetime="{{ page.date | date: "%F" }}">{{ page.date | date: "%B %e, %Y" }}</time>
     </header>
 
     {{ content }}
