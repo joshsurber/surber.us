@@ -1,11 +1,7 @@
 ---
-id: 1333
 title: Five years
 date: 2016-08-31T23:11:19+00:00
-author: josh
 layout: post
-guid: http://surber.us/?p=1333
-permalink: /2016/08/five-years/
 categories:
   - Blog
 tags:
