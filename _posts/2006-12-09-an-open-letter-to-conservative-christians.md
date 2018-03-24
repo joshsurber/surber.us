@@ -1,29 +1,40 @@
 ---
 id: 162
 title: An open letter to Conservative Christians
-date: 2006-12-09T16:09:44+00:00
+date: 2006-12-09T16:09:44.000Z
 author: josh
-excerpt: |
-  <p>It has been a while since I have written a religious article, but after seeing <a href="http://atheistdelusion.cf.huffingtonpost.com/" title="A satire of Christians mocking atheists">this flash video</a> (via <a href="http://digg.com/videos_educational/The_Atheist_Delusion">digg</a>, satire of <a href="http://www.atheistnation.net/index.php?p=31">The God Delusion</a>) I felt like I had to say something.</p>
-  
-  <p>I don&#8217;t see how you people have such a problem believing that science and religion can complement each other. I have, in fact, <a href="http://joshie.surber.us/2004/03/29/just-a-theory">mentioned this before</a>. I know that the Bible is God&#8217;s Word, but think about this: do you know Greek? Hebrew? Aramaic?</p>
+excerpt: >
+  <p>It has been a while since I have written a religious article, but after
+  seeing <a href="http://atheistdelusion.cf.huffingtonpost.com/" title="A satire
+  of Christians mocking atheists">this flash video</a> (via <a
+  href="http://digg.com/videos_educational/The_Atheist_Delusion">digg</a>,
+  satire of <a href="http://www.atheistnation.net/index.php?p=31">The God
+  Delusion</a>) I felt like I had to say something.</p>
+
+
+  <p>I don&#8217;t see how you people have such a problem believing that science
+  and religion can complement each other. I have, in fact, <a
+  href="http://joshie.surber.us/2004/03/29/just-a-theory">mentioned this
+  before</a>. I know that the Bible is God&#8217;s Word, but think about this:
+  do you know Greek? Hebrew? Aramaic?</p>
 layout: post
-guid: http://surber.us/?p=162
+guid: 'http://surber.us/?p=162'
 permalink: /2006/12/an-open-letter-to-conservative-christians/
 btc_comment_counts:
   - 's:6:"a:0:{}";'
 btc_comment_summary:
   - 's:6:"a:0:{}";'
 tmac_last_id:
-  - "152954854950699008"
+  - '152954854950699008'
 dsq_thread_id:
-  - "12636650"
+  - '12636650'
 categories:
   - Blog
 tags:
   - frusterations
   - open letters
   - religion
+published: true
 ---
 It has been a while since I have written a religious article, but after seeing this flash video (via [digg](http://digg.com/videos_educational/The_Atheist_Delusion), satire of [The God Delusion](http://www.atheistnation.net/index.php?p=31)) I felt like I had to say something.
 
