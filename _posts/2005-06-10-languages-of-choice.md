@@ -1,17 +1,7 @@
 ---
-id: 125
 title: Languages of Choice
 date: 2005-06-10T09:57:03+00:00
-author: josh
 layout: post
-guid: http://surber.us/?p=125
-permalink: /2005/06/languages-of-choice/
-btc_comment_counts:
-  - 's:6:"a:0:{}";'
-btc_comment_summary:
-  - 's:6:"a:0:{}";'
-tmac_last_id:
-  - "152954872705200128"
 categories:
   - Blog
 tags:
@@ -20,7 +10,7 @@ tags:
 ---
 I recently checked out a book from the local library on Python ([Learning Python, 2nd Ed.](http://www.oreilly.com/catalog/lpython2/)) and don’t think it is a very good language. It is too loose where it shouldn’t be, and restrains you where it shouldn’t.
 
-A good programming language should allow you to do almost anything you need, should be consistent throughout, and should allow you to use knowledge of another language as a starting point. C and derivatives, Java, and to some degree Perl and <span class="caps">PHP</span> all have enough similarities in syntax that it is fairly nontrivial to learn all of them once you have learned one. For my money, however, the best one to learn is JavaScript.
+A good programming language should allow you to do almost anything you need, should be consistent throughout, and should allow you to use knowledge of another language as a starting point. C and derivatives, Java, and to some degree Perl and PHP all have enough similarities in syntax that it is fairly nontrivial to learn all of them once you have learned one. For my money, however, the best one to learn is JavaScript.
 
 JavaScript is (almost) essential if you plan on doing any web development. It is designed so that you can learn bits and pieces and do functional stuff within the first half hour or so (without much case and pasting), and is scalable. It can be used for trivial tasks such as image rollovers in a web page, but scales so well that the majority of Mozilla, Firefox, Thunderbird, and pretty much any other Mozilla.org application or extension is primarily written in JavaScript. A good chunk of DreamWeaver is in JS. Not to mention a large portion of Windows (okay, that’s not such a good example, but bad apps can be written in any language).
 
