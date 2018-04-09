@@ -9,8 +9,8 @@ body{
     >header {
         grid-area: header;
         color: white; 
-        padding: 247px 5px 5px;
-        background: black url({{ site.baseurl }}/images/badwolf.jpg) top center no-repeat;// 
+        padding: 5px;
+        background: black;
         h1{margin:0};
         a{color:white;text-decoration:none;}
     }
@@ -38,13 +38,22 @@ body{
     >footer {
         grid-area: footer;
     }
-    display: grid;
+    //display: grid;
     grid-template-columns: auto 20%;
     grid-template-areas: 
         "header header"
         "main aside"
         "nav footer";
     font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif
+}
+@media only screen and (min-width: 1024px) {
+body{
+    display:grid;
+    >header {
+        padding: 247px 5px 5px;
+        background: black url({{ site.baseurl }}/images/badwolf.jpg) top center no-repeat;// 
+    }
+}
 }
 
 /*
