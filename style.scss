@@ -21,7 +21,7 @@ body{
     >main {
         grid-area: main;
         article{
-            margin: 2em 20%;
+            margin: 2em;
             header{
                 h1{
                 }
@@ -39,21 +39,31 @@ body{
         grid-area: footer;
     }
     //display: grid;
-    grid-template-columns: auto 20%;
+    grid-template-columns: auto 200px;
     grid-template-areas: 
         "header header"
         "main aside"
         "nav footer";
     font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif
 }
-@media only screen and (min-width: 1024px) {
-body{
-    display:grid;
-    >header {
-        padding: 247px 5px 5px;
-        background: black url({{ site.baseurl }}/images/badwolf.jpg) top center no-repeat;// 
-    }
+@media only screen and (min-width: 750px) {
+    body{display:grid}
 }
+@media only screen and (min-width: 850px) {
+    body{ grid-template-columns: auto 250px;}
+}
+@media only screen and (min-width: 1024px) {
+    body{
+        display:grid;
+        grid-template-columns: auto 350px;
+        >header {
+            padding: 247px 5px 5px;
+            background: black url({{ site.baseurl }}/images/badwolf.jpg) top center no-repeat;// 
+        }
+        >main article{
+            margin: 2em 20%;
+        }
+    }
 }
 
 /*
