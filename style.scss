@@ -22,14 +22,6 @@ body{
         grid-area: main;
         article{
             margin: 2em;
-            header{
-                h1{
-                }
-                time {
-                }
-            }
-            footer {
-            }
         }
     }
     >aside {
@@ -38,16 +30,15 @@ body{
     >footer {
         grid-area: footer;
     }
-    //display: grid;
-    grid-template-columns: auto 200px;
-    grid-template-areas: 
-        "header header"
-        "main aside"
-        "nav footer";
     font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif
 }
 @media only screen and (min-width: 750px) {
     body{display:grid}
+    grid-template-columns: auto 200px;
+    grid-template-areas: 
+    "header header"
+    "main aside"
+    "nav footer";
 }
 @media only screen and (min-width: 850px) {
     body{ grid-template-columns: auto 250px;}
