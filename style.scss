@@ -2,17 +2,20 @@
 ---
 @import "normalize";
 @import "h5bp";
-@import "variables";
 
-a{color:#1c94e0;text-decoration:none;}
+a{
+    color:#1c94e0;
+    text-decoration:none;
+}
 body{
+    font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
     >header {
         grid-area: header;
         color: white; 
         padding: 5px;
         background: black;
         h1{margin:0};
-        a{color:white;text-decoration:none;}
+        a{color:white;}
     }
     >nav {
         grid-area: nav;
@@ -30,7 +33,6 @@ body{
     >footer {
         grid-area: footer;
     }
-    font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif
 }
 @media only screen and (min-width: 750px) {
     body{
