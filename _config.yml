@@ -21,7 +21,7 @@ plugins:
 - jekyll-feed
 - jekyll-default-layout
 - jekyll-titles-from-headings
-- jekyll-seo-tag
+# - jekyll-seo-tag
 
 exclude:
   - Gemfile
@@ -34,11 +34,11 @@ titles_from_headings:
   enabled:     true
   strip_title: true
 
-author:
-  twitter: JoshSurber
-twitter:
-    username: JoshSurber
-social:
-    name: Josh Surber
-    links:
-        - http://twitter.com/JoshSurber
+# author:
+#   github: JoshSurber
+# github:
+#     username: JoshSurber
+# social:
+#     name: Josh Surber
+#     links:
+#         - http://github.com/JoshSurber
