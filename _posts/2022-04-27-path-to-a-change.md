@@ -1,7 +1,5 @@
 ---
 title: My path to a change
-date: 2022-04-22
-layout: post
 categories:
   - Blog
 tags:
