@@ -2,10 +2,12 @@
 ---
 
 @import "normalize";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap");
 
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin-block: 0;
 }
 * + * {
@@ -92,6 +94,7 @@ blockquote {
   &::before,
   &::after {
     font-size: 4em;
+    font-family: "Playfair Display", serif;
     position: absolute;
     color: var(--pop);
   }
