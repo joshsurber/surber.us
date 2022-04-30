@@ -17,6 +17,7 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 plugins:
+- jekyll-browsersync
 - jekyll-sitemap
 - jekyll-feed
 - jekyll-default-layout
@@ -33,12 +34,3 @@ exclude:
 titles_from_headings:
   enabled:     true
   strip_title: true
-
-# author:
-#   github: JoshSurber
-# github:
-#     username: JoshSurber
-# social:
-#     name: Josh Surber
-#     links:
-#         - http://github.com/JoshSurber

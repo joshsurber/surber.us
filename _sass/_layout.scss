@@ -1,43 +1,43 @@
-body{
-    >header {
-        grid-area: header;
-    }
-    >nav {
-        grid-area: nav;
-    }
-    >main {
-        grid-area: main;
-    }
-    >aside {
-        grid-area: aside;
-    }
-    >footer {
-        grid-area: footer;
-    }
+#header {
+  grid-area: header;
+}
+#nav {
+  grid-area: nav;
+}
+#main {
+  grid-area: main;
+}
+#sidebar {
+  grid-area: aside;
+}
+#footer {
+  grid-area: footer;
 }
 
 @media only screen and (min-width: 750px) {
-    body{
-        display:grid;
-        grid-template-columns: auto 200px;
-        grid-template-areas: 
-        "header header"
-        "main aside"
-        "nav footer";
-    };
+  body {
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-template-areas:
+      "header header"
+      "main aside"
+      "nav footer";
+  }
 }
 @media only screen and (min-width: 850px) {
-    body{ grid-template-columns: auto 250px;}
+  body {
+    grid-template-columns: auto 250px;
+  }
 }
 @media only screen and (min-width: 1024px) {
-    body{
-        grid-template-columns: auto 350px;
-        >header {
-            padding: 247px 5px 5px;
-            background: black url(/images/badwolf.jpg) top center no-repeat;
-        }
-        >main article{
-            margin: 2em 20%;
-        }
-    }
+  body {
+    grid-template-columns: auto 350px;
+  }
+  #header {
+    padding: 247px 5px 5px;
+    background: black url(/images/badwolf.jpg) top center no-repeat;
+  }
+  main article {
+    margin: 2em 20%;
+  }
 }

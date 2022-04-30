@@ -25,19 +25,25 @@
   </head>
 
   <body>
-    <header>
+    <header id="header">
+      <img
+        src="/images/badwolf.jpg"
+        alt="Bad Wolf written in the sand on a beach"
+      />
       <h1>
         <a href="{{ site.baseurl }}/">{{ site.name }}</a> &mdash; {{
         site.description }}
       </h1>
     </header>
 
-    <nav>{% include nav.html %}</nav>
+    <nav id="nav">{% include nav.html %}</nav>
 
-    <main>{{ content }}</main>
+    <main id="main">{{ content }}</main>
 
-    <aside>{% include sidebar.html %}</aside>
+    <!-- <aside id="sidebar">{% include sidebar.html %}</aside> -->
 
-    <footer>&copy; 1999&ndash;{{ site.time | date: "%Y" }} Josh Surber</footer>
+    <footer id="footer">
+      &copy; 1999&ndash;{{ site.time | date: "%Y" }} Josh Surber
+    </footer>
   </body>
 </html>
