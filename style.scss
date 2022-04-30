@@ -82,7 +82,7 @@ a::before {
   text-shadow: none;
 }
 a:hover::before {
-  transform: scaleX(100%);
+  transform: scaleX(1);
   transform-origin: left;
   transition-timing-function: ease-in-out;
 }
