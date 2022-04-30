@@ -1,10 +1,5 @@
 ---
 title: My path to a change
-categories:
-  - Blog
-tags:
-  - career
-  - programming
 ---
 
 I got my first job as a bagger at Kroger when I was sixteen years old. Since

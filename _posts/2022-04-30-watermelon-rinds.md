@@ -1,7 +1,5 @@
 ---
 title: Watermelon rinds
-Categories:
-  - Personal
 ---
 
 I can't be the only one who slices watermelon rinds into long thin strips, then
