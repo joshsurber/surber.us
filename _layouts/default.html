@@ -31,19 +31,20 @@
         alt="Bad Wolf written in the sand on a beach"
       />
       <h1>
-        <a href="{{ site.baseurl }}/">{{ site.name }}</a> &mdash; {{
+        <a href="{{ site.baseurl }}/">{{ site.name }}</a> &bull; {{
         site.description }}
       </h1>
     </header>
 
-    <nav id="nav">{% include nav.html %}</nav>
+    <!-- <nav id="nav">{% include nav.html %}</nav> -->
 
     <main id="main">{{ content }}</main>
 
-    <!-- <aside id="sidebar">{% include sidebar.html %}</aside> -->
+    <aside id="sidebar">{% include sidebar.html %}</aside>
 
     <footer id="footer">
       &copy; 1999&ndash;{{ site.time | date: "%Y" }} Josh Surber
+      <a href="{% link legal.md %}">Legal</a>
     </footer>
   </body>
 </html>
