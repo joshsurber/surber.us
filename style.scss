@@ -20,11 +20,9 @@
   box-sizing: border-box;
 }
 body {
-  font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
-  background-color: var(--bg);
-  color: var(--fg);
-  line-height: 1.5;
   display: grid;
+  grid-column-gap: 1rem;
+  gap: 1rem;
   grid-template:
     "header"
     "main"
@@ -32,15 +30,22 @@ body {
     "nav"
     "footer"
     / 1fr;
-  grid-column-gap: 1rem;
-  gap: 1rem;
   align-items: start;
+
+  background-color: var(--bg);
+
+  font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+  color: var(--fg);
+  line-height: 1.5;
 }
 #header {
-  grid-area: header;
   --bg: var(--black);
   --fg: var(--white);
+
+  grid-area: header;
+
   background-color: var(--bg);
+
   color: var(--fg);
   h1 {
     margin: 0;
@@ -55,27 +60,31 @@ body {
 }
 #main {
   grid-area: main;
+
   max-width: 75ch;
   margin-inline: auto;
   padding-inline: 1rem;
 }
 #nav {
   grid-area: nav;
+
   margin-inline: auto;
   padding-inline: 1rem;
 }
 #sidebar {
   grid-area: sidebar;
-  padding-inline: 1rem;
   align-items: center;
-  margin-inline: 1rem;
+
   // background: var(--poplight);
   background: linear-gradient(var(--popdark), var(--poplight));
-  border: 0.15rem solid var(--popdark);
   border-radius: 1rem;
-  box-shadow: 1px 1px 3px var(--popdark);
-  // height: 100%;
+  border: 0.15rem solid var(--popdark);
+  margin-inline: 1rem;
+  padding-inline: 1rem;
+
   line-height: 1.2;
+
+  box-shadow: 1px 1px 3px var(--popdark);
   a {
     color: var(--gray);
   }
