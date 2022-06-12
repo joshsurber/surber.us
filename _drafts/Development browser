@@ -1,0 +1,7 @@
+There are three rendering engines powering well over 99% of active web users; webkit, Blink, and Gecko. All three are open source, as are dozens of browsers. I lack the skills to do so, but would love to see someone create a new browser. All i want is a basic viewport and devtools, but an option in the devtools that can switch between the three engines. No other features required. 
+
+If i didn't require the devtools I'd make this in python this afternoon.
+
+Actually now that i think about it there used to be a Firefox extension that could switch to Trident on Windows; i wonder if that could be modified. I know even that night be a pretty large project, and might not be possible. 
+
+If anyone has the skills to create this, i will pay. I can't pay much right now, but i will pay. 
