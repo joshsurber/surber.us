@@ -160,13 +160,22 @@ img {
   text-shadow: none;
 }
 
-@media (max-width: 40rem) {
+.pagination {
+  border: 3px solid var(--pop);
+  border-radius: 100vmax;
+  text-align: center;
+}
+article + article {
+  margin-top: 5rem;
+}
+
+@media (max-width: 40em) {
   // small screen
   #header img {
     display: none;
   }
 }
-@media (min-width: 40rem) {
+@media (min-width: 40em) {
   // large screen
   body {
     grid-template:

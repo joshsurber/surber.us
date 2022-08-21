@@ -11,7 +11,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    css_class: 'highlight'
+    css_class: "highlight"
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
@@ -21,11 +21,12 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 plugins:
-- jekyll-sitemap
-- jekyll-feed
-- jekyll-default-layout
-- jekyll-titles-from-headings
-- jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-seo-tag
+  - jekyll-paginate
 
 exclude:
   - Gemfile
@@ -35,5 +36,7 @@ exclude:
   - CNAME
 
 titles_from_headings:
-  enabled:     true
+  enabled: true
   strip_title: true
+
+paginate: 5
