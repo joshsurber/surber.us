@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}
+    </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/prism-gruvbox-dark.css" />
+    <!-- <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="/feed.xml" /> -->
+    <link rel="icon" href="//j.mp/joshsurber" sizes="32x32" />
+  </head>
+
+  <body>
+    <header id="header" class="header | flex | brandbg white">
+      <h1>
+        <a href="/" class="black nohover">{{ site.name }}</a> {{
+        site.description }}
+      </h1>
+    </header>
+
+    <nav id="nav" class="mainnav">
+      <ul>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="main container">{{ content }}</main>
+
+    <aside id="sidebar" class="sidebar | brandbg">
+      <p>
+        <img
+          src="/images/josh.png"
+          alt="Headshot image of Josh Surber"
+          title="Creepy disembodied head"
+        />
+      </p>
+      <p>
+        My name is Josh Surber. For over twenty years my career has been food
+        and retail management, with web development as a hobby. I am trying to
+        turn web development into a career and telling people what to do into a
+        hobby.
+      </p>
+      <ul contact="contact">
+        <li><a href="https://www.linkedin.com/in/joshsurber/">LinkedIn</a></li>
+        <li><a href="https://github.com/joshsurber">Github</a></li>
+        <li>
+          <a href="https://stackoverflow.com/users/18970627/josh-surber"
+            >StackOverflow</a
+          >
+        </li>
+        <li><a href="https://forms.gle/g5GFSgAHoeYmnpn77">Hire me</a></li>
+      </ul>
+    </aside>
+
+    <footer id="footer">
+      © 1999 – {% year %} Josh Surber ▪
+      <a href="/legal">Legal</a>
+    </footer>
+  </body>
+</html>

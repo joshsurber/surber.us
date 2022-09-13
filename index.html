@@ -1,31 +1,36 @@
 ---
-layout: default
-published: true
+layout: base
+pagination:
+  data: collections.posts
+  size: 5
+  alias: posts
+  reverse: true
+permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus: 1 }}{% endif %}/"
 ---
 
-{% for post in paginator.posts %}
-<article>
-    <header>
-        <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-        Posted
-        <time datetime="{{ post.date | date: '%F' }}">
-            {{ post.date | date: "%B %e, %Y" }}
-        </time>
-    </header>
-
-    {{ post.content }}
+{% for post in posts %}
+<article class="article | flow">
+  <header>
+    <h2><a href="{{ post.url }}" class="brand">{{ post.data.title }}</a></h2>
+    Posted
+    <time datetime="{{ post.date | date: '%F' }}">
+      {{ post.date | date: "%A, %e %B %Y" }}
+    </time>
+  </header>
+  <p>
+    {{ post.templateContent | excerpt }}
+    <a href="{{ post.url }}">Read more</a>...
+  </p>
 </article>
 {% endfor %}
 
 <!-- Pagination links -->
-<div class="pagination">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous"> Previous </a>
-    {% endif %}
-    <span class="page_number">
-        Page: {{ paginator.page }} of {{ paginator.total_pages }}
-    </span>
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-    {% endif %}
-</div>
+<nav class="articlenav">
+  <a href="{{ pagination.href.first }}">First</a> ▪ {% if
+  pagination.href.previous %}
+  <a href="{{ pagination.href.previous }}">Previous</a> ▪ {% endif %} Page: {{
+  pagination.pageNumber | plus: 1 }} of {{ pagination.pages.length }} {% if
+  pagination.href.next %} ▪ <a href="{{ pagination.href.next }}">Next</a> {%
+  endif %} ▪
+  <a href="{{ pagination.href.last }}">Last</a>
+</nav>
