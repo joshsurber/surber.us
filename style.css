@@ -184,23 +184,9 @@ footer {
   display: flex;
 }
 body {
-  display: grid;
-  gap: 1rem;
-  grid-template:
-    "header"
-    "nav"
-    "main"
-    "sidebar"
-    "footer";
 }
 @media (min-width: 50em) {
   body {
-    grid-template:
-      "header nav"
-      "main sidebar"
-      "main ."
-      "footer footer"
-      / 3fr 1fr;
   }
 }
 #header {
@@ -212,8 +198,8 @@ body {
 #main {
   grid-area: main;
 }
-#sidebar {
-  grid-area: sidebar;
+#hero {
+  grid-area: hero;
 }
 #footer {
   grid-area: footer;
