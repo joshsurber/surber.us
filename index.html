@@ -9,7 +9,7 @@ permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | pl
 ---
 
 {% for post in posts %}
-<article class="article | flow">
+<article class="article | flow excerpt">
   <header>
     <h2><a href="{{ post.url }}" class="brand">{{ post.data.title }}</a></h2>
     Posted
@@ -19,7 +19,7 @@ permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | pl
   </header>
   <p>
     {{ post.templateContent | excerpt }}
-    <a href="{{ post.url }}">Read more</a>...
+    <a href="{{ post.url }}" class="readmore">Read more</a>...
   </p>
 </article>
 {% endfor %}

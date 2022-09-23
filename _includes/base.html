@@ -17,15 +17,23 @@
   </head>
 
   <body>
-    <header id="header" class="header | flex | brandbg white">
+    <header id="header" class="header | brandbg white">
       <h1>
-        <a href="/" class="black nohover">{{ site.name }}</a> {{
-        site.description }}
+        <a href="/" class="logo | nohover">
+          <img
+            src="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=400"
+            alt=""
+          />
+        </a>
+        <a href="/" class="sitename | black nohover">{{ site.name }}</a>
+        <a href="/" class="sitedesc | white nohover">{{ site.description }}</a>
       </h1>
     </header>
 
-    <nav id="nav" class="mainnav">
-      <ul>
+    <nav id="nav" class="mainnav | | brandbg">
+      <ul class="flex">
+        <li><a href="/">Home</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
     </nav>
@@ -38,7 +46,9 @@
       />
     </div>
 
-    <aside id="sidebar" class="sidebar | brandbg">
+    <main id="main" class="main container">{{ content }}</main>
+
+    <footer id="footer">
       <p>
         My name is Josh Surber. For over twenty years my career has been food
         and retail management, with web development as a hobby. I am trying to
@@ -53,13 +63,8 @@
             >StackOverflow</a
           >
         </li>
-        <li><a href="https://forms.gle/g5GFSgAHoeYmnpn77">Hire me</a></li>
+        <li><a href="mailto:josh@surber.us">Hire me</a></li>
       </ul>
-    </aside>
-
-    <main id="main" class="main container">{{ content }}</main>
-
-    <footer id="footer">
       © 1999 – {% year %} Josh Surber ▪
       <a href="/legal">Legal</a>
     </footer>

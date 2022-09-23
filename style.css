@@ -1,4 +1,3 @@
-/* vim set fdm=marker fmr={,} */
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap");
 :root {
   --hsl-hs: 28 87%;
@@ -30,8 +29,6 @@
   --fw-bold: 700;
 }
 
-/* RESET {*/
-
 *,
 *::before,
 *::after {
@@ -51,6 +48,7 @@ picture,
 img {
   max-width: 100%;
   display: block;
+  border: 1px solid var(--color-black);
 }
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -66,8 +64,7 @@ img {
   }
 }
 
-/*}*/
-/* BASE STYLES {*/
+/* BASE STYLES */
 
 :root {
   --step--2: clamp(0.91rem, calc(0.89rem + 0.1vw), 0.96rem);
@@ -111,6 +108,16 @@ a,
   text-decoration: none;
   position: relative;
 }
+a:hover,
+.link:hover,
+a:focus-visible,
+.link:focus-visible {
+  text-decoration: underline;
+}
+:is(a, .link) {
+  /* !Important used to enhance experience for browsers that support :is */
+  text-decoration: none !important;
+}
 :is(a, .link)::before {
   position: absolute;
   content: "";
@@ -120,14 +127,13 @@ a,
   transform-origin: right;
   transition: transform 500ms linear;
 }
-:is(a, .link).nohover::before {
+:is(a, .link).nohover::before,
+:is(a, .link):has(img)::before {
   display: none;
 }
 :is(a, .link):is(:hover, :focus-visible)::before {
   transform: scaleX(1);
   transform-origin: left;
-}
-header {
 }
 h1 {
   font-size: var(--size-heading);
@@ -152,24 +158,24 @@ footer {
   padding: var(--space-xs, 1rem);
 }
 
-/*}*/
-/* LAYOUT {*/
+/* LAYOUT */
 
 .flow * + * {
   margin-top: var(--gap, var(--space-s, 1em));
 }
 .even-columns {
   display: grid;
-  gap: var(--gap, var(--space-s, 1rem));
+  gap: var(--gap, var(--space-s, 1em));
 }
 @media (min-width: 50em) {
   .even-columns {
-    grid-template-columns: repeat(var(--columns, 2), 1fr);
+    grid-auto-flow: column;
+    grid-auto-column: 1fr;
   }
 }
 .container {
   --_padding: var(--padding, var(--space-s, 1rem));
-  --_width: var(--width, 40em);
+  --_width: var(--width, 75ch);
   width: min(100% - var(--_padding) * 2, var(--_width));
   margin-inline: auto;
 }
@@ -182,43 +188,23 @@ footer {
 }
 .flex {
   display: flex;
+  gap: var(--gap, var(--space-s, 1em));
 }
-body {
-}
-@media (min-width: 50em) {
-  body {
-  }
-}
-#header {
-  grid-area: header;
-}
-#nav {
-  grid-area: nav;
-}
-#main {
-  grid-area: main;
-}
-#hero {
-  grid-area: hero;
-}
-#footer {
-  grid-area: footer;
-}
-
-/*}*/
-/* COMPONENTS {*/
-
-/*}*/
-/* UTILITY {*/
-
-.center {
+.stacked {
   display: grid;
-  place-content: center;
-  text-align: center;
+  place-items: center;
+  isolation: isolate;
 }
-.mx-auto {
-  margin-inline: auto;
+.stacked > * {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
 }
+.stacked > .media {
+  z-index: -1;
+}
+
+/* UTILITY */
+
 .black {
   color: var(--color-black);
 }
@@ -256,7 +242,85 @@ body {
   --color-accent: var(--color-brand);
 }
 
-/*}*/
-/* EXCEPTIONS {*/
+.center {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+.mx-auto {
+  margin-inline: auto;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
 
-/*}*/
+/* COMPONENTS */
+
+/* heading */
+h1 {
+  display: grid;
+  grid:
+    "logo"
+    "title"
+    "desc";
+}
+h1 .logo {
+  grid-area: logo;
+}
+h1 .sitename {
+  grid-area: title;
+}
+h1 .sitedesc {
+  grid-area: desc;
+}
+@media (max-width: 50em) {
+  h1 {
+    margin-block-end: 1rem;
+  }
+  h1 > * {
+    margin-inline: auto;
+  }
+}
+@media (min-width: 50em) {
+  h1 {
+    grid:
+      "title logo "
+      "desc logo"
+      / 1fr calc(var(--size-heading) + var(--size-subheading) + 0.5em);
+    padding-inline-start: 1rem;
+  }
+}
+
+/* mainnav */
+.mainnav {
+  position: sticky;
+  top: 0;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  z-index: 9;
+  border-bottom: 1px solid var(--color-black);
+}
+.mainnav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.mainnav a {
+  color: var(--color-black);
+  text-shadow: 0 0 1px currentColor;
+}
+
+/* hero */
+.hero {
+  min-height: 50vh;
+  background-image: url(/images/josh.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.hero img {
+  display: none;
+  border: 0;
+  height: 100%;
+}
