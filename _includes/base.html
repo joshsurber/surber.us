@@ -19,22 +19,24 @@
   <body>
     <header id="header" class="header | brandbg white">
       <h1>
-        <a href="/" class="logo | nohover">
-          <img
-            src="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=400"
-            alt=""
-          />
-        </a>
         <a href="/" class="sitename | black nohover">{{ site.name }}</a>
         <a href="/" class="sitedesc | white nohover">{{ site.description }}</a>
       </h1>
     </header>
 
-    <nav id="nav" class="mainnav | | brandbg">
+    <nav id="nav" class="mainnav | brandbg">
       <ul class="flex">
         <li><a href="/">Home</a></li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/blog">Blog</a></li>
+        <li class="logo">
+          <a href="/" class="logo | nohover">
+            <img
+              src="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=400"
+              alt=""
+            />
+          </a>
+        </li>
       </ul>
     </nav>
 

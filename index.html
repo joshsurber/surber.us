@@ -9,7 +9,7 @@ permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | pl
 ---
 
 {% for post in posts %}
-<article class="article | flow excerpt">
+<article class="article | flow">
   <header>
     <h2><a href="{{ post.url }}" class="brand">{{ post.data.title }}</a></h2>
     Posted
@@ -17,7 +17,7 @@ permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | pl
       {{ post.date | date: "%A, %e %B %Y" }}
     </time>
   </header>
-  <p>
+  <p class="excerpt">
     {{ post.templateContent | excerpt }}
     <a href="{{ post.url }}" class="readmore">Read more</a>...
   </p>
@@ -25,7 +25,7 @@ permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | pl
 {% endfor %}
 
 <!-- Pagination links -->
-<nav class="articlenav">
+<nav class="pagination |">
   <a href="{{ pagination.href.first }}">First</a> ▪ {% if
   pagination.href.previous %}
   <a href="{{ pagination.href.previous }}">Previous</a> ▪ {% endif %} Page: {{

@@ -22,6 +22,7 @@
   --size-subheading: var(--step-3);
   --size-text: var(--step--1);
   --size-small: var(--step--2);
+  --size-lineheight: 1.5;
 
   --ff-heading: "Oswald", sans-serif;
 
@@ -98,7 +99,7 @@ body {
   color: var(--color-black);
   font-size: var(--size-text);
   font-family: system-ui, sans-serif;
-  line-height: 1.5;
+  line-height: var(--size-lineheight);
 }
 a,
 .link {
@@ -171,6 +172,11 @@ footer {
   .even-columns {
     grid-auto-flow: column;
     grid-auto-column: 1fr;
+  }
+}
+@media (max-width: 50em) {
+  .flex {
+    flex-direction: column;
   }
 }
 .container {
@@ -258,12 +264,19 @@ footer {
 }
 
 /* COMPONENTS */
+.nav {
+  position: relative;
+}
+.logo {
+  position: absolute;
+  aspect-ratio: 1;
+  inset: 0 0 0 auto;
+}
 
 /* heading */
 h1 {
   display: grid;
   grid:
-    "logo"
     "title"
     "desc";
 }
@@ -276,28 +289,10 @@ h1 .sitename {
 h1 .sitedesc {
   grid-area: desc;
 }
-@media (max-width: 50em) {
-  h1 {
-    margin-block-end: 1rem;
-  }
-  h1 > * {
-    margin-inline: auto;
-  }
-}
-@media (min-width: 50em) {
-  h1 {
-    grid:
-      "title logo "
-      "desc logo"
-      / 1fr calc(var(--size-heading) + var(--size-subheading) + 0.5em);
-    padding-inline-start: 1rem;
-  }
-}
 
 /* mainnav */
 .mainnav {
-  position: sticky;
-  top: 0;
+  position: relative;
   padding-inline: 1rem;
   padding-block: 0.5rem;
   z-index: 9;
@@ -312,6 +307,32 @@ h1 .sitedesc {
   text-shadow: 0 0 1px currentColor;
 }
 
+/* responsive topbar */
+@media (max-width: 50em) {
+  h1 {
+    padding-block-end: 0.25em;
+  }
+  h1 > * {
+    margin-inline: auto;
+  }
+}
+@media (min-width: 50em) {
+  h1 {
+    grid:
+      "title"
+      "desc"
+      / 1fr;
+    padding-inline-start: 1rem;
+  }
+  .logo {
+    top: calc(0rem - var(--size-heading));
+  }
+  .mainnav {
+    position: sticky;
+    top: 0;
+  }
+}
+
 /* hero */
 .hero {
   min-height: 50vh;
@@ -323,4 +344,45 @@ h1 .sitedesc {
   display: none;
   border: 0;
   height: 100%;
+}
+
+/* articles */
+
+/* exceprpt and read more */
+.excerpt {
+  position: relative;
+  --lineheight: calc(var(--size-lineheight) * 1em);
+}
+.excerpt::before,
+.excerpt::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  height: var(--lineheight);
+}
+.excerpt::before {
+  bottom: 0;
+  background: var(--color-white);
+}
+.excerpt::after {
+  bottom: var(--lineheight);
+  background: linear-gradient(
+    to left,
+    var(--color-white) 10ch,
+    hsl(var(--hsl-white) / 0)
+  );
+}
+.readmore {
+  position: absolute;
+  bottom: var(--lineheight);
+  right: 1ch;
+  z-index: 1;
+}
+
+.pagination {
+  margin-top: var(--space-l);
+  border: 2px solid var(--color-brand);
+  border-radius: 100vmax;
+  text-align: center;
 }

@@ -13,7 +13,7 @@ layout: base
 
 </article>
 
-<nav class="articlenav">
+<nav class="pagination">
     {% assign previousPost = collections.posts | getPreviousCollectionItem: page %}
     {% assign nextPost = collections.posts | getNextCollectionItem: page %}
     {% if previousPost %}Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
