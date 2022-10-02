@@ -29,7 +29,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/blog">Blog</a></li>
-        <li><a href="mailto:josh@surber.us">Hire me</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li class="logo">
           <a href="/" class="logo | nohover">
             <img
@@ -41,6 +41,7 @@
       </ul>
     </nav>
 
+    {% if hero %}
     <div
       id="hero"
       class="hero | even-columns | glow center white"
@@ -50,20 +51,23 @@
       <p class="brand">Front end developer, focusing on the JAMstack</p>
       <p>
         For over twenty years my career has been food and retail management,
-        with web development as a hobby. I am trying to turn web development
-        into a career and telling people what to do into a hobby.
+        with web development as a hobby. I am ready to turn web development into
+        a career and telling people what to do into a hobby.
+        <a href="/contact" class="button">Hire me!</a>
       </p>
     </div>
+    {% endif %}
 
     <main id="main" class="main container">{{ content }}</main>
 
     <footer
       id="footer"
       class="footer | flex space-between flex-end | brandbg"
+      style="--gap: 0.25em 1em"
       data-cols="2"
       data-nonresponsive
     >
-      <ul class="contact | list-style-none">
+      <ul class="contact | flex | list-style-none">
         <li>
           <a href="https://www.linkedin.com/in/joshsurber/">LinkedIn</a>
         </li>

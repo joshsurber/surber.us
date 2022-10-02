@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Oswald:wght@400;600;700&family=Roboto:ital,wght@0,400;0,700;0,900;1,400&display=swap");
 :root {
   --hsl-hs: 28 87%;
   --hsl-l: 62%;
@@ -26,15 +26,21 @@
   --size-small: var(--step--2);
   --size-lineheight: 1.5;
 
-  --ff-heading: "Oswald", sans-serif;
-  --ff-hero: "Oswald", sans-serif;
-  --ff-hero-body: system-ui, sans-serif;
-  --ff-body: system-ui, sans-serif;
+  --oswald: "Oswald", ui-sans-serif, sans-serif;
+  --roboto: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --robotoslab: "Roboto Slab", ui-serif, serif;
+
+  --ff-heading: var(--robotoslab);
+  --ff-hero: var(--roboto);
+  --ff-hero-body: var(--roboto);
+  --ff-body: var(--roboto);
+  --ff-button: var(--robotoslab);
 
   --fw-heading: 400;
   --fw-hero: 400;
   --fw-hero-body: 400;
   --fw-bold: 700;
+  --fw-black: 900;
 }
 
 *,
@@ -57,6 +63,11 @@ img {
   max-width: 100%;
   display: block;
   border: 1px solid var(--color-black);
+}
+textarea {
+  min-height: 4em;
+  resize: vertical;
+  resize: block;
 }
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -107,6 +118,11 @@ body {
   font-size: var(--size-body);
   font-family: var(--ff-body);
   line-height: var(--size-lineheight);
+  display: flex;
+  flex-direction: column;
+}
+main {
+  margin-block: auto;
 }
 a,
 .link {
@@ -138,6 +154,7 @@ a:focus-visible,
   transition: transform 350ms linear;
 }
 :is(a, .link).nohover::before,
+:is(a, .link).button::before,
 :is(a, .link):has(img)::before {
   display: none;
 }
@@ -166,6 +183,7 @@ strong {
 footer {
   margin-block-start: var(--space-m, 1.5rem);
   padding: var(--space-xs, 1rem);
+  box-shadow: 0 -2px 5px -3px var(--color-black);
 }
 footer p {
   max-width: 75ch;
@@ -288,7 +306,8 @@ footer p {
   float: right;
 }
 .glow {
-  text-shadow: 0 0 calc(1em / 16) var(--glowcolor, currentColor);
+  text-shadow: 0 0 calc(1em / 16 * var(--glowsize, 1))
+    var(--glowcolor, currentColor);
 }
 .list-style-none {
   list-style-type: none;
@@ -328,10 +347,10 @@ h1 .sitedesc {
 /* mainnav */
 .mainnav {
   position: relative;
-  padding-inline: 1rem;
-  padding-block: 0.5rem;
+  padding: 0.5rem 1rem;
   z-index: 9;
-  border-bottom: 1px solid var(--color-black);
+  /* border-bottom: 1px solid var(--color-black); */
+  box-shadow: 0 2px 5px -3px var(--color-black);
 }
 .mainnav a {
   color: var(--color-black);
@@ -360,7 +379,7 @@ h1 .sitedesc {
   min-height: 50vh;
   padding-block: var(--space-l-xl);
   padding-inline: var(--space-2xs);
-  background: hsl(var(--hsl-black) / 0.5);
+  background: hsl(var(--hsl-black) / 0.6);
 
   font-family: var(--ff-hero);
   font-size: var(--size-hero);
@@ -428,6 +447,44 @@ h1 .sitedesc {
   border: 2px solid var(--color-brand);
   border-radius: 100vmax;
   text-align: center;
+}
+
+button,
+.button {
+  cursor: pointer;
+  display: block;
+  margin-block-start: 1em;
+  padding: 0.5em 1em;
+  background: var(--color-brand);
+  color: var(--color-white);
+  border-radius: 1em;
+  border: none;
+  font-family: var(--ff-button);
+  transition: all 500ms;
+}
+button:hover,
+.button:hover {
+  background: var(--color-accent);
+}
+
+form {
+  margin: 1em;
+  display: grid;
+  gap: 1em 0.5em;
+}
+label {
+  margin-block-end: -1em;
+}
+@media (min-width: 40em) {
+  form {
+    grid-template-columns: 5em 1fr;
+  }
+  label {
+    text-align: right;
+  }
+  button {
+    grid-column: span 2;
+  }
 }
 
 @media (min-width: 50em) {
