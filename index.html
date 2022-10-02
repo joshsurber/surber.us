@@ -19,13 +19,13 @@ permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | pl
   </header>
   <p class="excerpt">
     {{ post.templateContent | excerpt }}
-    <a href="{{ post.url }}" class="readmore">Read more</a>...
+    <a href="{{ post.url }}#main" class="readmore">Read more</a>...
   </p>
 </article>
 {% endfor %}
 
 <!-- Pagination links -->
-<nav class="pagination |">
+<nav class="pagination">
   <a href="{{ pagination.href.first }}">First</a> ▪ {% if
   pagination.href.previous %}
   <a href="{{ pagination.href.previous }}">Previous</a> ▪ {% endif %} Page: {{

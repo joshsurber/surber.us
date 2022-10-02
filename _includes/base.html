@@ -25,10 +25,11 @@
     </header>
 
     <nav id="nav" class="mainnav | brandbg">
-      <ul class="flex">
+      <ul class="flex | list-style-none">
         <li><a href="/">Home</a></li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/blog">Blog</a></li>
+        <li><a href="mailto:josh@surber.us">Hire me</a></li>
         <li class="logo">
           <a href="/" class="logo | nohover">
             <img
@@ -40,35 +41,41 @@
       </ul>
     </nav>
 
-    <div id="hero" class="hero">
-      <img
-        src="/images/josh.png"
-        alt="Headshot image of Josh Surber"
-        title="Creepy disembodied head"
-      />
+    <div
+      id="hero"
+      class="hero | even-columns | glow center white"
+      style="--glowcolor: var(--color-black)"
+    >
+      <!-- <img src="/images/josh.png" alt="Headshot image of Josh Surber" title="Creepy disembodied head" /> -->
+      <p class="brand">Front end developer, focusing on the JAMstack</p>
+      <p>
+        For over twenty years my career has been food and retail management,
+        with web development as a hobby. I am trying to turn web development
+        into a career and telling people what to do into a hobby.
+      </p>
     </div>
 
     <main id="main" class="main container">{{ content }}</main>
 
-    <footer id="footer">
-      <p>
-        My name is Josh Surber. For over twenty years my career has been food
-        and retail management, with web development as a hobby. I am trying to
-        turn web development into a career and telling people what to do into a
-        hobby.
-      </p>
-      <ul contact="contact">
-        <li><a href="https://www.linkedin.com/in/joshsurber/">LinkedIn</a></li>
+    <footer
+      id="footer"
+      class="footer | flex space-between flex-end | brandbg"
+      data-cols="2"
+      data-nonresponsive
+    >
+      <ul class="contact | list-style-none">
+        <li>
+          <a href="https://www.linkedin.com/in/joshsurber/">LinkedIn</a>
+        </li>
         <li><a href="https://github.com/joshsurber">Github</a></li>
         <li>
           <a href="https://stackoverflow.com/users/18970627/josh-surber"
             >StackOverflow</a
           >
         </li>
-        <li><a href="mailto:josh@surber.us">Hire me</a></li>
+        <li><a href="/legal">Legal</a></li>
       </ul>
-      © 1999 – {% year %} Josh Surber ▪
-      <a href="/legal">Legal</a>
+      <div>© 1999 – {% year %} Josh Surber</div>
     </footer>
   </body>
 </html>
