@@ -3,7 +3,7 @@ title: Contact
 layout: page
 ---
 
-Looking to hire me? You can text me (or call me, I guess) at [(321) J-SURBER](tel:3215787237) or email me through this contact form.
+Looking to hire me? You can text me (or call me, I guess) at [(321) J-SURBER](tel:3215787237) or email me.
 
 <form action="https://submit-form.com/dbPIMBIf">
   <label for="name">Name</label>

@@ -468,7 +468,7 @@ button:hover,
 }
 
 form {
-  margin: 1em;
+  margin: var(--space-xl) auto;
   display: grid;
   gap: 1em 0.5em;
 }

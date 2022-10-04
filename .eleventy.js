@@ -12,9 +12,9 @@ module.exports = function (eleventyConfig) {
     excerpt_separator: "<!--more-->",
   });
 
-  eleventyConfig.addFilter("excerpt", (post) => {
+  eleventyConfig.addFilter("excerpt", (post, len = 300) => {
     const content = post.replace(/(<([^>]+)>)/gi, "");
-    return content.substr(0, content.lastIndexOf(" ", 300)) + "...";
+    return content.substr(0, content.lastIndexOf(" ", len)) + "...";
   });
 
   eleventyConfig.setBrowserSyncConfig({
