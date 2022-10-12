@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link rel="stylesheet" type="text/css" href="/prism-gruvbox-dark.css" />
+    <script src="/script.js" defer></script>
     <!-- <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="/feed.xml" /> -->
     <link
       rel="icon"
@@ -20,7 +21,7 @@
     />
   </head>
 
-  <body>
+  <body class="{{bodyClass}}">
     <header id="header" class="header | brandbg white">
       <h1>
         <a href="/" class="sitename | black nohover">{{ site.name }}</a>
@@ -28,14 +29,22 @@
       </h1>
     </header>
 
+    {% comment %} This giant mess assigns the current page to have a proper aria
+    label, which is used below in the li tag {% endcomment %} {% if page.url ==
+    '/' %} {% assign home = " aria-current='page' " %} {% endif %} {% if
+    page.url contains '/portfolio' %} {% assign portfolio= " aria-current='page'
+    " %} {% endif %} {% if page.url contains '/blog' %} {% assign blog = "
+    aria-current='page' " %} {% endif %} {% if page.url contains '/contact' %}
+    {% assign contact = " aria-current='page' " %} {% endif %}
+
     <nav id="nav" class="mainnav | brandbg">
       <ul class="flex | list-style-none">
-        <li><a href="/">Home</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li {{home}}><a href="/">Home</a></li>
+        <li {{portfolio}}><a href="/portfolio">Portfolio</a></li>
+        <li {{blog}}><a href="/blog">Blog</a></li>
+        <li {{contact}}><a href="/contact">Contact</a></li>
         <li class="logo">
-          <a href="/" class="logo | nohover">
+          <a href="/" class="nohover">
             <img
               src="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=400"
               alt=""

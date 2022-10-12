@@ -1,5 +1,6 @@
 ---
 title: My dev toolkit through the years
+summary: I find NeoVim in the Linux Layer of ChromeOS is the best enviroment for me. I explain why, as ell as offering a great alternative if Vim or Linux aren't for you.
 ---
 
 TLDR; I currently use NeoVim in the Linux layer of ChromeOS for development. I recommend this setup for anyone interested in web development who has a bit of knowledge of Linux or is willing to learn. If Vim or Linux aren't for you, [VSCode in the Linux layer of ChromeOS is simple to set up](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started), and once you are done you shouldn't need to bother with knowing any Linux commands (other than for stuff like npm).

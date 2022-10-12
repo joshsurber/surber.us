@@ -6,6 +6,7 @@ pagination:
   alias: posts
   reverse: true
 permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus: 1 }}{% endif %}/"
+bodyClass: blog
 ---
 
 {% for post in posts %}
@@ -17,10 +18,13 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
       {{ post.date | date: "%A, %e %B %Y" }}
     </time>
   </header>
+
+  {% comment %}
   <p class="excerpt">
     {{ post.templateContent | excerpt }}
     <a href="{{ post.url }}#main" class="readmore">Read more</a>...
   </p>
+  {% endcomment %} {{ post.templateContent }}
 </article>
 {% endfor %}
 

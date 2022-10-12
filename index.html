@@ -1,0 +1,67 @@
+---
+layout: base
+hero: true
+bodyClass: home
+---
+
+<style>
+  .header,
+  .mainnav,
+  .hero {
+    ndisplay: none;
+  }
+</style>
+
+<div class="portfolio | card-collection">
+  <h2>Portfolio</h2>
+  <div class="even-columns">
+    {% assign projects = collections.projects | reverse %} {% for project in
+    projects limit:3 %}
+    <div class="card">
+      <header>
+        <h3 class="title">
+          <a href="{{ project.url }}">{{ project.data.title }}</a>
+        </h3>
+      </header>
+      <img src="{{ project.data.image }}" alt="{{ project.data.imageAlt }}" />
+      <footer><a href="{{ project.url }}">Read more</a></footer>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="center">
+    <a href="/portfolio"> Check out more examples of my work </a>
+  </div>
+</div>
+
+<div class="recent-articles | card-collection">
+  <h2>Recent articles</h2>
+  <div class="even-columns">
+    {% assign posts = collections.posts | reverse %} {% for post in posts
+    limit:3 %}
+    <article class="card">
+      <header>
+        <h3 class="title">
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h3>
+        <time datetime="{{ post.date | date: '%F' }}">
+          Posted {{ post.date | date: "%a, %e %b %Y" }}
+        </time>
+      </header>
+
+      {% if post.data.summary %}
+      <p class="summary">{{ post.data.summary }}</p>
+      {% else %}
+      <p class="excerpt">
+        {{ post.templateContent | excerpt:200 }} {% endif %}
+      </p>
+
+      <footer>
+        <a href="{{ post.url }}#main" class="readmore">Read more</a>
+      </footer>
+    </article>
+    {% endfor %}
+  </div>
+  <div class="center">
+    <a href="/blog"> Read more on my blog </a>
+  </div>
+</div>

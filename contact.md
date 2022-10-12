@@ -1,6 +1,7 @@
 ---
 title: Contact
 layout: page
+bodyClass: contact
 ---
 
 Looking to hire me? You can text me (or call me, I guess) at [(321) J-SURBER](tel:3215787237) or email me.

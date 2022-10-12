@@ -7,14 +7,15 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-    excerpt_separator: "<!--more-->",
-  });
-
   eleventyConfig.addFilter("excerpt", (post, len = 300) => {
     const content = post.replace(/(<([^>]+)>)/gi, "");
     return content.substr(0, content.lastIndexOf(" ", len)) + "...";
+  });
+
+  eleventyConfig.addCollection("projects", function (collectionApi) {
+    return collectionApi.getFilteredByTag("projects").sort(function (a, b) {
+      return a.data.pride - b.data.pride;
+    });
   });
 
   eleventyConfig.setBrowserSyncConfig({
@@ -29,5 +30,4 @@ module.exports = function (eleventyConfig) {
   // return { dir: { input: "src", output: "public", }, };
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-  // {% if page.url == post.url %} aria-current="page"{% endif %}
 };
