@@ -1,0 +1,40 @@
+---
+layout: base
+pagination:
+  data: collections.portfolio
+  size: 5
+  alias: portfolio
+  reverse: true
+permalink: "portfolio/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus: 1 }}{% endif %}/"
+bodyClass: portfolio
+---
+
+{% for project in portfolio %}
+<article class="article | flow">
+  <header>
+    <h2><a href="{{ post.url }}" class="brand">{{ post.data.title }}</a></h2>
+    Posted
+    <time datetime="{{ post.date | date: '%F' }}">
+      {{ post.date | date: "%A, %e %B %Y" }}
+    </time>
+  </header>
+
+  {% comment %}
+  <p class="excerpt">
+    {{ post.templateContent | excerpt }}
+    <a href="{{ post.url }}#main" class="readmore">Read more</a>...
+  </p>
+  {% endcomment %} {{ post.templateContent }}
+</article>
+{% endfor %}
+
+<!-- Pagination links -->
+<nav class="pagination">
+  <a href="{{ pagination.href.first }}">First</a> ▪ {% if
+  pagination.href.previous %}
+  <a href="{{ pagination.href.previous }}">Previous</a> ▪ {% endif %} Page: {{
+  pagination.pageNumber | plus: 1 }} of {{ pagination.pages.length }} {% if
+  pagination.href.next %} ▪ <a href="{{ pagination.href.next }}">Next</a> {%
+  endif %} ▪
+  <a href="{{ pagination.href.last }}">Last</a>
+</nav>
