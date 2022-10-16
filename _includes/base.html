@@ -22,6 +22,7 @@
   </head>
 
   <body class="{{bodyClass}}">
+    <a href="#nav" class="skiplink">Skip to navigation</a>
     <header id="header" class="header | brandbg white">
       <h1>
         <a href="/" class="sitename | black nohover">{{ site.name }}</a>
@@ -36,7 +37,7 @@
     " %} {% endif %} {% if page.url contains '/blog' %} {% assign blog = "
     aria-current='page' " %} {% endif %} {% if page.url contains '/contact' %}
     {% assign contact = " aria-current='page' " %} {% endif %}
-
+    <a href="#main" class="skiplink">Skip to main content</a>
     <nav id="nav" class="mainnav | brandbg">
       <ul class="flex | list-style-none">
         <li {{home}}><a href="/">Home</a></li>
@@ -47,7 +48,7 @@
           <a href="/" class="nohover">
             <img
               src="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=400"
-              alt=""
+              alt="Home"
             />
           </a>
         </li>

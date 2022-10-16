@@ -1,0 +1,5 @@
+{
+  "layout": "base.html",
+  "permalink": "/portfolio/{{ page.fileSlug }}/",
+  "tags": ["portfolio"]
+}

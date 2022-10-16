@@ -12,22 +12,23 @@ bodyClass: portfolio
 {% for project in portfolio %}
 <article class="article | flow">
   <header>
-    <h2><a href="{{ post.url }}" class="brand">{{ post.data.title }}</a></h2>
+    <h2>
+      <a href="{{ project.url }}" class="brand">{{ project.data.title }}</a>
+    </h2>
     Posted
-    <time datetime="{{ post.date | date: '%F' }}">
-      {{ post.date | date: "%A, %e %B %Y" }}
+    <time datetime="{{ project.date | date: '%F' }}">
+      {{ project.date | date: "%A, %e %B %Y" }}
     </time>
   </header>
 
   {% comment %}
   <p class="excerpt">
-    {{ post.templateContent | excerpt }}
-    <a href="{{ post.url }}#main" class="readmore">Read more</a>...
+    {{ project.overview }}
+    <a href="{{ project.url }}#main" class="readmore">Read more</a>...
   </p>
-  {% endcomment %} {{ post.templateContent }}
+  {% endcomment %} {{ project.templateContent }}
 </article>
-{% endfor %}
-
+{% endfor %} {% if pagination.pages.length >1 %}
 <!-- Pagination links -->
 <nav class="pagination">
   <a href="{{ pagination.href.first }}">First</a> ▪ {% if
@@ -38,3 +39,4 @@ bodyClass: portfolio
   endif %} ▪
   <a href="{{ pagination.href.last }}">Last</a>
 </nav>
+{% endif %}
