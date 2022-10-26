@@ -10,7 +10,7 @@
 
   --hsl-brand: var(--hsl-hs) var(--hsl-l);
   --hsl-accent: var(--hsl-hs-a) var(--hsl-l-a);
-  --hsl-white: var(--hsl-hs-a) 95%;
+  --hsl-white: var(--hsl-hs) 95%;
   --hsl-black: var(--hsl-hs) 5%;
 
   --color-brand: hsl(var(--hsl-brand));
@@ -230,6 +230,9 @@ strong {
   width: min(100% - var(--_padding) * 2, var(--_width));
   inline-size: min(100% - var(--_padding) * 2, var(--_width));
   margin-inline: auto;
+}
+.container .fullbleed {
+  margin: 0 calc(50% - 50vw);
 }
 .full-grid {
   grid-column: 1/-1;
@@ -512,8 +515,9 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
 
-  border-inline: 1px solid var(--color-black);
+  border: 1px solid var(--color-black);
   border-radius: 1rem;
+  overflow: hidden;
 }
 .card > * {
   padding-inline: var(--space-2xs);
@@ -524,8 +528,8 @@ h1 {
   color: var(--color-black);
   --color-link: var(--color-white);
 
-  border-block-start: 1px solid var(--color-black);
-  border-radius: 1rem 1rem 0 0;
+  /* border-block-start: 1px solid var(--color-black); */
+  /* border-radius: 1rem 1rem 0 0; */
 }
 .card footer {
   isolation: isolate;
@@ -537,8 +541,8 @@ h1 {
   color: var(--color-black);
   --color-link: var(--color-white);
 
-  border-block-end: 1px solid var(--color-black);
-  border-radius: 0 0 1rem 1rem;
+  /* border-block-end: 1px solid var(--color-black); */
+  /* border-radius: 0 0 1rem 1rem; */
 }
 
 /* footer */

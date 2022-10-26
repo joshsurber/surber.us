@@ -9,6 +9,7 @@ permalink: "portfolio/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageN
 bodyClass: portfolio
 ---
 
+<!-- <style> .header, .mainnav { display: none; } </style> -->
 {% for project in portfolio %}
 <article class="article | flow">
   <header>
@@ -20,15 +21,22 @@ bodyClass: portfolio
       {{ project.date | date: "%A, %e %B %Y" }}
     </time>
   </header>
+  {%comment%} {% if project.data.before %}
+  <img
+    src="{{project.data.before}}"
+    alt="{{project.data.beforeAlt}}"
+    class="border"
+  />
+  {% endif %} {%endcomment%}
+  <img
+    src="{{project.data.image}}"
+    alt="{{project.data.imageAlt}}"
+    class="border"
+  />
 
-  {% comment %}
-  <p class="excerpt">
-    {{ project.overview }}
-    <a href="{{ project.url }}#main" class="readmore">Read more</a>...
-  </p>
-  {% endcomment %} {{ project.templateContent }}
+  {{ project.data.overview }}
 </article>
-{% endfor %} {% if pagination.pages.length >1 %}
+{% endfor %} {% if pagination.pages.length > 1 %}
 <!-- Pagination links -->
 <nav class="pagination">
   <a href="{{ pagination.href.first }}">First</a> ▪ {% if

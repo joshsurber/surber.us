@@ -1,5 +1,6 @@
 ---
 title: TnT Cakery
+date: 2022-08-05
 client: Tina Orosco
 overview: Tina was starting baking. She had no brand, logo, or even name. We gave her a consistently branded online presence.
 quote: "Josh did a great job"
