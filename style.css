@@ -233,6 +233,9 @@ strong {
 }
 .container .fullbleed {
   margin: 0 calc(50% - 50vw);
+  /* width:100vw; */
+  /* margin-left: 50%; */
+  /* transform:translateX(-50); */
 }
 .full-grid {
   grid-column: 1/-1;
@@ -463,6 +466,9 @@ h1 {
 /* articles */
 .article {
   margin-block: var(--size-2xl);
+}
+.article h2{
+  margin-block-end: var(--gap, var(--space-2xs, .5em));
 }
 
 /* excerpt and read more */
