@@ -10,11 +10,14 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  // Create a shortened excerpt of content, cut off at the end of a word
+  // Pass in the max length ie `content | excerpt:150`
   eleventyConfig.addFilter("excerpt", (post, len = 300) => {
     const content = post.replace(/(<([^>]+)>)/gi, "");
     return content.substr(0, content.lastIndexOf(" ", len)) + "...";
   });
 
+  // Return the projects collection sorted by how proud I am of each
   eleventyConfig.addCollection("projects", function (collectionApi) {
     return collectionApi.getFilteredByTag("projects").sort(function (a, b) {
       return a.data.pride - b.data.pride;
@@ -41,7 +44,7 @@ module.exports = function (eleventyConfig) {
     ui: { port: 8081 },
     // ghostMode: { clicks: true, forms: true, scroll: true, location: true, },
     open: "external",
-    // reloadOnRestart: true,
+    reloadOnRestart: true,
   });
 
   // {{ year }} will display the current year, great for copyright notices
@@ -50,6 +53,4 @@ module.exports = function (eleventyConfig) {
   // I started using non-default directories but why not just use 11ty as designed?
   // Keeping this here in case I find reason to change my mind...
   // return { dir: { input: "src", output: "public", }, };
-
-  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 };
