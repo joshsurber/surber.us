@@ -1,8 +1,11 @@
 ---
 title: My dev toolkit through the years
-summary: I find NeoVim in the Linux Layer of ChromeOS is the best enviroment for me. I explain why, as ell as offering a great alternative if Vim or Linux aren't for you.
+summary: I find NeoVim in the Linux Layer of ChromeOS is the best enviroment for me. I explain why, as well as offering a great alternative if Vim or Linux aren't for you.
+image: https://blog.hostonnet.com/wp-content/uploads/2017/02/neovim.jpg
+imageAlt: The NeoVim logo
 ---
 
+{% comment %} image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Neovim-mark.svg/1200px-Neovim-mark.svg.png {% endcomment %}
 TLDR; I currently use NeoVim in the Linux layer of ChromeOS for development. I recommend this setup for anyone interested in web development who has a bit of knowledge of Linux or is willing to learn. If Vim or Linux aren't for you, [VSCode in the Linux layer of ChromeOS is simple to set up](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started), and once you are done you shouldn't need to bother with knowing any Linux commands (other than for stuff like npm).
 
 I've been doing web development at various levels for well over 20 years, mostly working through various iterations of my own site. As such, my toolchain has gone through a few iterations of tools. When I first started, I was using a Mac on [System 7](https://system7.app/), later updated to a better Mac with [OS8](https://macos8.app/). For these, I used Claris HomePage Lite and BBEdit Lite. The lite version of Claris didn't support tables, without which "cutting edge" web development of the late 1900's was impossible. But it did make it easier to do the basics of a design, which I could then edit in BBEdit. This is how the first couple of iterations of my site were created. It was static, had no purpose, and the only part of it that mattered was the link to my LiveJournal. I alternated between IE6 (the Mac edition was easily the best browser available at the time) and iCab, a small German browser that helped introduce me to web standards. It had a small icon that showed a smiley face when a page validated, and a frown when it didn't that explained why when clicked. Trying to make iCab smile made me research web standards. This in turn led to a rabbit hole of Jeffrey Zeldman, the Web Standards Project, A List Apart, and many others. Some of the people and sites that Zeldman introduced me to, I still follow to this day.

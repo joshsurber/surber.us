@@ -1,5 +1,8 @@
 ---
 title: My first client site
+image: "/images/tntcakery.svg"
+imageAlt: The logo for TnT Cakery
+summary: I pushed my first client site live, for a San Antonio-local custom cake home baker. In the process, I created an entire brand as well.
 ---
 
 A couple of weeks ago, I pushed my first client site live! [TnT Cakery](https://tntcakery.com) is a San Antonio-local custom cake home baker. Tina, the owner, had no idea what she wanted when she said she would like a website, so the entire thing was mostly left to my discretion. After a brief meeting with her, I found that as she custom makes (and prices) all her cakes, an online ordering system would not work well, so the focus should be showing off previous work with a primary call-to-action of having the viewer contact Tina to order a cake.

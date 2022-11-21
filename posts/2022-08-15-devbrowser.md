@@ -1,5 +1,6 @@
 ---
 title: DevBrowser
+summary: I wish for a browser that can let me change rendering engines on the fly, to simplify cross-browser testing. This should be possible.
 ---
 
 There are a plethora of available web browsers in use right not, but only three rendering engines powering nearly all of them. Webkit powers Safari (including the iPhone browser), Gecko powers Firefox and its derivatives like IceWeasel, and Blink powers Chrome and all the Chromium spin-offs, including Microsoft Edge. From a web development standpoint, this means that while the more browsers you can test in the better, as long as you test in these three engines you are mostly covered (though there are obviously various versions to worry about too). As a Linux user, I use Chrome for Blink, Firefox for Gecko, and Epiphany for Webkit. However, I would love a new browser that could streamline this process.
