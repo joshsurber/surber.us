@@ -67,9 +67,16 @@ picture,
 svg {
   display: block;
   max-width: 100%;
-}
-img.border {
+  margin-inline: auto;
   border: 1px solid var(--color-black);
+}
+img[src$="svg"],
+svg {
+  width: 100%;
+  background: white;
+}
+img.noborder {
+  border: 0;
 }
 textarea {
   min-height: 4em;
