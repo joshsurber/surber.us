@@ -282,6 +282,7 @@ strong,
 
 /* UTILITY */
 
+/* change text colors */
 .black {
   color: var(--color-black);
 }
@@ -294,6 +295,7 @@ strong,
 .accent {
   color: var(--color-accent);
 }
+/* change background colors, while preventing text of the same color */
 .blackbg {
   background-color: var(--color-black);
 }
