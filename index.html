@@ -29,7 +29,7 @@ bodyClass: home
 <div class="portfolio | card-collection">
   <h2>Portfolio</h2>
   <div class="even-columns">
-    {% assign projects = collections.projects | reverse %} {% for project in
+    {% assign projects = collections.portfolio | reverse %} {% for project in
     projects limit:3 %}
     <div class="card">
       <header>
@@ -37,7 +37,16 @@ bodyClass: home
           <a href="{{ project.url }}">{{ project.data.title }}</a>
         </h3>
       </header>
-      <img src="{{ project.data.image }}" alt="{{ project.data.imageAlt }}" />
+
+      <div class="body | flow">
+        <img
+          src="{{ project.data.image }}"
+          alt="{{ project.data.imageAlt }}"
+          class="border"
+        />
+        <p>{{ project.data.overview }}</p>
+      </div>
+
       <footer><a href="{{ project.url }}">Read more</a></footer>
     </div>
     {% endfor %}
@@ -58,16 +67,29 @@ bodyClass: home
           <a href="{{ post.url }}">{{ post.data.title }}</a>
         </h3>
         <time datetime="{{ post.date | date: '%F' }}">
-          Posted {{ post.date | date: "%a, %e %b %Y" }}
+          Posted {{ post.date | toUTCString:"D MMM YY" }}
         </time>
       </header>
 
-      {% if post.data.summary %}
-      <p class="summary">{{ post.data.summary }}</p>
-      {% else %}
-      <p class="excerpt">
-        {{ post.templateContent | excerpt:200 }} {% endif %}
-      </p>
+      <div
+        class="body | stacked flow glow"
+        style="--glowcolor: var(--color-white)"
+      >
+        {% if post.data.summary %}
+        <p class="summary">{{ post.data.summary }}</p>
+        {% else %}
+        <p class="excerpt">
+          {{ post.templateContent | excerpt:200 }} {% endif %}
+        </p>
+        {% if post.data.image %}
+        <img
+          src="{{post.data.image}}"
+          alt="{{post.data.imageAlt}}"
+          class="media noborder"
+          style="max-block-size: 10em; opacity: 0.5"
+        />
+        {% endif %}
+      </div>
 
       <footer>
         <a href="{{ post.url }}#main" class="readmore">Read more</a>
