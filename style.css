@@ -22,6 +22,7 @@
   --size-hero-body: var(--size-s);
   --size-heading: var(--size-2xl);
   --size-subheading: var(--size-xl);
+  --size-subsubheading: var(--size-m);
   --size-body: var(--size-xs);
   --size-small: var(--size-2xs);
   --size-lineheight: 1.5;
@@ -36,7 +37,7 @@
   --ff-body: var(--roboto);
   --ff-button: var(--robotoslab);
 
-  --fw-heading: 400;
+  --fw-heading: 700;
   --fw-hero: 400;
   --fw-hero-body: 400;
   --fw-bold: 700;
@@ -191,15 +192,24 @@ h1 {
   line-height: 1;
 }
 h2 {
-  /* margin-block: 1em; */
+  margin-block-start: 1em;
   font-size: var(--size-subheading);
   font-family: var(--ff-heading);
   line-height: 1;
 }
-em {
+h3 {
+  margin-block-start: 1em;
+  font-weight: var(--fw-heading);
+  font-size: var(--size-subsubheading);
+  font-family: var(--ff-heading);
+  line-height: 1;
+}
+em,
+.italic {
   font-style: italic;
 }
-strong {
+strong,
+.bold {
   font-weight: var(--fw-bold);
 }
 
