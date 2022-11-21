@@ -1,4 +1,7 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const moment = require("moment");
+// Import prior to `module.exports` within `.eleventy.js`
+const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
@@ -18,12 +21,31 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // Format a UTC date, using format patterns from moment.js
+  // https://momentjs.com/docs/#/displaying/format/
+  eleventyConfig.addLiquidFilter(
+    "toUTCString",
+    (date, fmt = "dddd, D MMMM YYYY") => {
+      const utc = date.toUTCString();
+      return moment.utc(utc).format(fmt);
+    }
+  );
+
+  // Format a ISO date
+  eleventyConfig.addLiquidFilter("toISOString", (date) => {
+    const utc = date.toUTCString();
+    return moment.utc(utc).toISOString();
+  });
+
   eleventyConfig.setBrowserSyncConfig({
     ui: { port: 8081 },
     // ghostMode: { clicks: true, forms: true, scroll: true, location: true, },
     open: "external",
     // reloadOnRestart: true,
   });
+
+  // {{ year }} will display the current year, great for copyright notices
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // I started using non-default directories but why not just use 11ty as designed?
   // Keeping this here in case I find reason to change my mind...
