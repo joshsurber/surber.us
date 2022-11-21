@@ -1,4 +1,5 @@
 ---
+title: Portfolio
 layout: base
 pagination:
   data: collections.portfolio
@@ -9,7 +10,6 @@ permalink: "portfolio/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageN
 bodyClass: portfolio
 ---
 
-<!-- <style> .header, .mainnav { display: none; } </style> -->
 {% for project in portfolio %}
 <article class="article | flow">
   <header>
@@ -17,24 +17,16 @@ bodyClass: portfolio
       <a href="{{ project.url }}" class="brand">{{ project.data.title }}</a>
     </h2>
     Posted
-    <time datetime="{{ project.date | date: '%F' }}">
-      {{ project.date | date: "%A, %e %B %Y" }}
+    <time datetime="{{ project.date | toISOString }}">
+      {{ project.date | toUTCString }}
     </time>
   </header>
   {%comment%} {% if project.data.before %}
-  <img
-    src="{{project.data.before}}"
-    alt="{{project.data.beforeAlt}}"
-    class="border"
-  />
+  <img src="{{project.data.before}}" alt="{{project.data.beforeAlt}}" />
   {% endif %} {%endcomment%}
-  <img
-    src="{{project.data.image}}"
-    alt="{{project.data.imageAlt}}"
-    class="border"
-  />
+  <img src="{{project.data.image}}" alt="{{project.data.imageAlt}}" />
 
-  {{ project.data.overview }}
+  <p>{{ project.data.overview }}</p>
 </article>
 {% endfor %} {% if pagination.pages.length > 1 %}
 <!-- Pagination links -->
