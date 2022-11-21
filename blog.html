@@ -1,4 +1,5 @@
 ---
+title: Blog
 layout: base
 pagination:
   data: collections.posts
@@ -14,17 +15,16 @@ bodyClass: blog
   <header>
     <h2><a href="{{ post.url }}" class="brand">{{ post.data.title }}</a></h2>
     Posted
-    <time datetime="{{ post.date | date: '%F' }}">
-      {{ post.date | date: "%A, %e %B %Y" }}
+    <time datetime="{{ post.date | toISOString }}">
+      {{ post.date | toUTCString }}
     </time>
   </header>
 
-  {% comment %}
-  <p class="excerpt">
-    {{ post.templateContent | excerpt }}
-    <a href="{{ post.url }}#main" class="readmore">Read more</a>...
-  </p>
-  {% endcomment %} {{ post.templateContent }}
+  <div class="body">
+    {% if post.data.image %}
+    <img src="{{post.data.image}}" alt="{{post.data.imageAlt}}" />
+    {% endif %} {{ post.templateContent }}
+  </div>
 </article>
 {% endfor %}
 
