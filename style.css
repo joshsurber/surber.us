@@ -18,6 +18,9 @@
   --color-white: hsl(var(--hsl-white));
   --color-black: hsl(var(--hsl-black));
 
+  --color-bg: var(--color-white);
+  --color-text: var(--color-black);
+
   --size-hero: var(--size-2xl);
   --size-hero-body: var(--size-s);
   --size-heading: var(--size-2xl);
