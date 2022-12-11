@@ -24,7 +24,9 @@ bodyClass: portfolio
   {%comment%} {% if project.data.before %}
   <img src="{{project.data.before}}" alt="{{project.data.beforeAlt}}" />
   {% endif %} {%endcomment%}
-  <img src="{{project.data.image}}" alt="{{project.data.imageAlt}}" />
+  <a href="{{ project.url }}" class="brand">
+    <img src="{{project.data.image}}" alt="{{project.data.imageAlt}}" />
+  </a>
 
   <p>{{ project.data.overview }}</p>
 </article>

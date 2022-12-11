@@ -70,6 +70,14 @@ svg {
   margin-inline: auto;
   border: 1px solid var(--color-black);
 }
+picture {
+  text-align: center;
+  font-size: var(--size-l);
+  font-weight: var(--fw-bold);
+}
+picture img {
+  border-inline: 0;
+}
 img[src$="svg"],
 svg {
   width: 100%;
@@ -250,7 +258,7 @@ strong,
 }
 .container {
   --_padding: var(--padding, var(--space-s, 1rem));
-  --_width: var(--width, 60ch);
+  --_width: var(--width, 75ch);
 
   inline-size: min(100% - var(--_padding) * 2, var(--_width));
   margin-inline: auto;
