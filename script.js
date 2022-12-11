@@ -21,3 +21,12 @@ function resizeLogo() {
   if (narrow) newTop = 0;
   logo.style.insetBlockStart = newTop + "px";
 }
+
+const cards = document.querySelectorAll(".card");
+cards.forEach((card) => {
+  const link = card.querySelector("a");
+  card.addEventListener("click", () => {
+    link.click();
+  });
+  card.setAttribute("style", "cursor:pointer");
+});
