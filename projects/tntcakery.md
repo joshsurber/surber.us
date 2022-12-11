@@ -9,18 +9,18 @@ imageAlt: A pink-themed site that brings a freshly frosted cake to mind
 pride: 2
 ---
 
-## What Tina was looking for
+### What Tina was looking for
 
 A site
 
-## Our solution
+### Our solution
 
 I made one, as well as consistent branding
 
-## What made it unique
+### What made it unique
 
 Mostly an art gallery style site
 
-## What I learned along the way
+### Reaction
 
 How to do snap scrolling
