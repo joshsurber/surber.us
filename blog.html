@@ -21,9 +21,8 @@ bodyClass: blog
   </header>
 
   <div class="body">
-    {% if post.data.image %}
-    <img src="{{post.data.image}}" alt="{{post.data.imageAlt}}" />
-    {% endif %} {{ post.templateContent }}
+    {% if post.data.image %} {% image post.data.image post.data.imageAlt %} {%
+    endif %} {{ post.templateContent }}
   </div>
 </article>
 {% endfor %}

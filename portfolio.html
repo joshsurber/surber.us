@@ -21,11 +21,8 @@ bodyClass: portfolio
       {{ project.date | toUTCString }}
     </time>
   </header>
-  {%comment%} {% if project.data.before %}
-  <img src="{{project.data.before}}" alt="{{project.data.beforeAlt}}" />
-  {% endif %} {%endcomment%}
   <a href="{{ project.url }}" class="brand">
-    <img src="{{project.data.image}}" alt="{{project.data.imageAlt}}" />
+    {% image project.data.image project.data.imageAlt %}
   </a>
 
   <p>{{ project.data.overview }}</p>

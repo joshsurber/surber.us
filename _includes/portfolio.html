@@ -7,13 +7,13 @@ layout: base
   {% if image and imageAlt %} {% if before and beforeAlt %}
   <div class="flex | flex-end">
     <picture>
-      <img src="{{before}}" alt="{{beforeAlt}}" />
+      {% image before beforeAlt %}
       <caption>
         Before
       </caption>
     </picture>
     <picture>
-      <img src="{{image}}" alt="{{imageAlt}}" />
+      {% image image imageAlt %}
       <caption>
         After
       </caption>
@@ -21,5 +21,5 @@ layout: base
   </div>
   {% else %}
   <img src="{{image}}" alt="{{imageAlt}}" />
-  {% endif %} {% endif %} {{ content }}
+  {% image image imageAlt %} {% endif %} {% endif %} {{ content }}
 </div>

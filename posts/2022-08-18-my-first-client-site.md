@@ -1,6 +1,6 @@
 ---
 title: My first client site
-image: "/images/tntcakery.svg"
+image: "images/tntcakery.svg"
 imageAlt: The logo for TnT Cakery
 summary: I pushed my first client site live, for a San Antonio-local custom cake home baker. In the process, I created an entire brand as well.
 ---

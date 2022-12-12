@@ -1,14 +1,34 @@
+const Image = require("@11ty/eleventy-img");
+
+async function imageShortcode(src, alt) {
+  if (alt === undefined) {
+    // You bet we throw an error on missing alt (alt="" works okay)
+    throw new Error(`Missing \`alt\` on myImage from: ${src}`);
+  }
+
+  let metadata = await Image(src, {
+    widths: [600],
+    formats: ["jpeg"],
+  });
+
+  let data = metadata.jpeg[metadata.jpeg.length - 1];
+  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" loading="lazy" decoding="async">`;
+}
+
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const moment = require("moment");
-// Import prior to `module.exports` within `.eleventy.js`
 const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("*.js");
   eleventyConfig.addPassthroughCopy("*.css");
 
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addLiquidShortcode("image", imageShortcode);
+  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
   // Create a shortened excerpt of content, cut off at the end of a word
   // Pass in the max length ie `content | excerpt:150`

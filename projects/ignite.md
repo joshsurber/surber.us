@@ -3,11 +3,11 @@ title: IGNiTE GOD'S LITE
 layout: portfolio
 date: 2022-09-07
 client: Barbi Law
-overview: Barbi had a very dated site that she wished to give a facelift to, while improving her process flow and saving money in the process. We modernized her site, improved her new client work flow, and saved her over $200 in the process.
+overview: Barbi had a very dated site that she wished to give a facelift to, while improving her process flow and saving money in the process. We modernized her site, improved her new client work flow, and saved her over $200 a year in the process.
 quote: "Josh did a great job"
-image: "/images/ignite.png"
+image: "images/ignite.png"
 imageAlt: A site with a patriotic blue theme.
-before: "/images/ignite.old.png"
+before: "images/ignite.old.png"
 beforeAlt: A site that seems like part of the GeoCities network
 pride: 1
 ---
@@ -31,7 +31,3 @@ Barbi was paying well over $200 a year just for hosting a SSL enabled site. As h
 ### What made it unique
 
 This site came with a deadline of a few weeks, as Barbi had a presentation at a conference where she wanted to show off her new site. This took place shortly after we went live, and the attendees were quite impressed with the new site.
-
-## What I learned along the way
-
-How to do snap scrolling
