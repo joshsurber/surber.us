@@ -19,7 +19,5 @@ layout: base
       </caption>
     </picture>
   </div>
-  {% else %}
-  <img src="{{image}}" alt="{{imageAlt}}" />
-  {% image image imageAlt %} {% endif %} {% endif %} {{ content }}
+  {% else %} {% image image imageAlt %} {% endif %} {% endif %} {{ content }}
 </div>

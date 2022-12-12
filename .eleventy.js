@@ -1,6 +1,6 @@
 const Image = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt) {
+async function imageShortcode(src, alt, cssClass = "") {
   if (alt === undefined) {
     // You bet we throw an error on missing alt (alt="" works okay)
     throw new Error(`Missing \`alt\` on myImage from: ${src}`);
@@ -9,10 +9,12 @@ async function imageShortcode(src, alt) {
   let metadata = await Image(src, {
     widths: [600],
     formats: ["jpeg"],
+    urlPath: "/images/",
+    outputDir: "./_site/images/",
   });
 
   let data = metadata.jpeg[metadata.jpeg.length - 1];
-  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" loading="lazy" decoding="async">`;
+  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" class="${cssClass}" loading="lazy" decoding="async">`;
 }
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -21,7 +23,6 @@ const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("*.js");
   eleventyConfig.addPassthroughCopy("*.css");
 

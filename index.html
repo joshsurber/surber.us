@@ -31,11 +31,7 @@ bodyClass: home
       </header>
 
       <div class="body | flow">
-        <img
-          src="{{ project.data.image }}"
-          alt="{{ project.data.imageAlt }}"
-          class="border"
-        />
+        {% image project.data.image project.data.imageAlt border %}
         <p>{{ project.data.overview }}</p>
       </div>
 

@@ -13,9 +13,7 @@ layout: base
     </time>
   </header>
 
-  {% if image %}
-  <img src="{{image}}" alt="{{imageAlt}}" />
-  {% endif %} {{ content }}
+  {% if image %} {% image image imageAlt %} {% endif %} {{ content }}
 </article>
 
 <nav class="pagination">
