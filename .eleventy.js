@@ -1,3 +1,4 @@
+// https://www.zachleat.com/web/eleventy-image/
 const Image = require("@11ty/eleventy-img");
 
 async function imageShortcode(src, alt, cssClass = "") {
@@ -8,18 +9,35 @@ async function imageShortcode(src, alt, cssClass = "") {
 
   let metadata = await Image(src, {
     widths: [600],
-    formats: ["jpeg"],
+    formats: ["svg", "jpeg", "png"],
     urlPath: "/images/",
     outputDir: "./_site/images/",
   });
 
-  let data = metadata.jpeg[metadata.jpeg.length - 1];
+  // let data = metadata.svg[0] ? metadata.svg[metadata.svg.length - 1] : metadata.jpeg[metadata.jpeg.length - 1];
+  let data = metadata.svg[0] ? metadata.svg[metadata.svg.length - 1] : metadata.png[metadata.png.length - 1];
   return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" class="${cssClass}" loading="lazy" decoding="async">`;
+}
+async function imageShortcode(src, alt, sizes) {
+  let metadata = await Image(src, {
+    widths: [600, 1200, 1800],
+    formats: ["svg", "jpeg"],
+  });
+
+  let imageAttributes = {
+    alt,
+    sizes,
+    sizes: [600, 1200, 1800],
+    loading: "lazy",
+    decoding: "async",
+  };
+
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return Image.generateHTML(metadata, imageAttributes, { whitespaceMode: "inline" });
 }
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const moment = require("moment");
-const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
@@ -27,9 +45,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("*.css");
 
   eleventyConfig.addPlugin(syntaxHighlight);
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+  eleventyConfig.addLiquidShortcode("pict", pictShortcode);
+  eleventyConfig.addJavaScriptFunction("pict", pictShortcode);
 
   // Create a shortened excerpt of content, cut off at the end of a word
   // Pass in the max length ie `content | excerpt:150`
@@ -47,13 +66,10 @@ module.exports = function (eleventyConfig) {
 
   // Format a UTC date, using format patterns from moment.js
   // https://momentjs.com/docs/#/displaying/format/
-  eleventyConfig.addLiquidFilter(
-    "toUTCString",
-    (date, fmt = "dddd, D MMMM YYYY") => {
-      const utc = date.toUTCString();
-      return moment.utc(utc).format(fmt);
-    }
-  );
+  eleventyConfig.addLiquidFilter("toUTCString", (date, fmt = "dddd, D MMMM YYYY") => {
+    const utc = date.toUTCString();
+    return moment.utc(utc).format(fmt);
+  });
 
   // Format a ISO date
   eleventyConfig.addLiquidFilter("toISOString", (date) => {

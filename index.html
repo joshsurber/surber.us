@@ -4,88 +4,69 @@ hero: true
 bodyClass: home
 ---
 
-<div
-  id="hero"
-  class="hero | fullbleed even-columns | glow center white"
-  style="--glowcolor: var(--color-black)"
->
-  <p class="brand">Front end developer, focusing on the JAMstack</p>
-  <p>
-    For over twenty years my career has been food and retail management, with
-    web development as a hobby. I am ready to turn web development into a career
-    and telling people what to do into a hobby.
-    <a href="/contact" class="button">Hire me!</a>
-  </p>
+<div id="hero" class="hero | fullbleed even-columns | glow center white" style="--glowcolor: var(--color-black)">
+	<p class="brand">Front end developer, focusing on the JAMstack</p>
+	<p>
+		For over twenty years my career has been food and retail management, with web development as a hobby. I am ready
+		to
+		turn web development into a career and telling people what to do into a hobby.
+		<a href="/contact" class="button">Hire me!</a>
+	</p>
 </div>
 
 <div class="portfolio | card-collection">
-  <h2>Portfolio</h2>
-  <div class="even-columns">
-    {% assign projects = collections.portfolio | reverse %} {% for project in
-    projects limit:3 %}
-    <div class="card">
-      <header>
-        <h3 class="title">
-          <a href="{{ project.url }}">{{ project.data.title }}</a>
-        </h3>
-      </header>
+	<h2>Portfolio</h2>
+	<div class="even-columns">
+		{% assign projects = collections.portfolio | reverse %} {% for project in projects limit:3 %}
+		<div class="card">
+			<header>
+				<h3 class="title">
+					<a href="{{ project.url }}">{{ project.data.title }}</a>
+				</h3>
+			</header>
 
-      <div class="body | flow">
-        {% image project.data.image project.data.imageAlt border %}
-        <p>{{ project.data.overview }}</p>
-      </div>
+			<div class="body | flow">
+				{% image project.data.image project.data.imageAlt border %}
+				<p>{{ project.data.overview }}</p>
+			</div>
 
-      <footer><a href="{{ project.url }}">Read more</a></footer>
-    </div>
-    {% endfor %}
-  </div>
-  <div class="center">
-    <a href="/portfolio"> Check out more examples of my work </a>
-  </div>
+			<footer><a href="{{ project.url }}">Read more</a></footer>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="center">
+		<a href="/portfolio"> Check out more examples of my work </a>
+	</div>
 </div>
 
 <div class="recent-articles | card-collection">
-  <h2>Recent articles</h2>
-  <div class="even-columns">
-    {% assign posts = collections.posts | reverse %} {% for post in posts
-    limit:3 %}
-    <article class="card">
-      <header>
-        <h3 class="title">
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
-        </h3>
-        <time datetime="{{ post.date | date: '%F' }}">
-          Posted {{ post.date | toUTCString:"D MMM YY" }}
-        </time>
-      </header>
+	<h2>Recent articles</h2>
+	<div class="even-columns">
+		{% assign posts = collections.posts | reverse %} {% for post in posts limit:3 %}
+		<article class="card">
+			<header>
+				<h3 class="title">
+					<a href="{{ post.url }}">{{ post.data.title }}</a>
+				</h3>
+				<time datetime="{{ post.date | date: '%F' }}"> Posted {{ post.date | toUTCString:"D MMM YY" }} </time>
+			</header>
 
-      <div
-        class="body | stacked flow glow"
-        style="--glowcolor: var(--color-white)"
-      >
-        {% if post.data.summary %}
-        <p class="summary">{{ post.data.summary }}</p>
-        {% else %}
-        <p class="excerpt">
-          {{ post.templateContent | excerpt:200 }} {% endif %}
-        </p>
-        {% if post.data.image %}
-        <img
-          src="{{post.data.image}}"
-          alt="{{post.data.imageAlt}}"
-          class="media noborder"
-          style="max-block-size: 10em; opacity: 0.5"
-        />
-        {% endif %}
-      </div>
+			<div class="body | stacked flow glow" style="--glowcolor: var(--color-white)">
+				{% if post.data.summary %}
+				<p class="summary">{{ post.data.summary }}</p>
+				{% else %}
+				<p class="excerpt">{{ post.templateContent | excerpt:200 }}</p>
+				{% endif %} {% if post.data.image %} {% image post.data.image post.data.imageAlt "bgimage media" %} {%
+				endif %}
+			</div>
 
-      <footer>
-        <a href="{{ post.url }}#main" class="readmore">Read more</a>
-      </footer>
-    </article>
-    {% endfor %}
-  </div>
-  <div class="center">
-    <a href="/blog"> Read more on my blog </a>
-  </div>
+			<footer>
+				<a href="{{ post.url }}#main" class="readmore">Read more</a>
+			</footer>
+		</article>
+		{% endfor %}
+	</div>
+	<div class="center">
+		<a href="/blog"> Read more on my blog </a>
+	</div>
 </div>
