@@ -1,5 +1,7 @@
 ---
 title: My path to a change
+image: https://unsplash.com/photos/ukzHlkoz1IE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8NHx8Y2FyZWVyJTIwY2hhbmdlfGVufDB8fHx8MTY3MjY4NTUwNw&force=true&w=2400
+imageAlt: Sign reading "This is the change you've been looking for"
 ---
 
 I got my first job as a bagger at Kroger when I was sixteen years old. Since

@@ -18,10 +18,8 @@ Tina is the owner of a home bakery in San Antonio. She had a personal reputation
 
 We began with helping her find a name. The letters TnT were important to her (As in Tina aNd Tony, her husband). We found a great name with an available domain, so we laid claim for her. We kept the cake theme for the entire branding, with the logo we designed having the appearance of a multi-tiered cake on a cake stand and the color scheme reminiscent of icing.
 
-### What made it unique
-
 As the cakes and their prices are unique for every client, a shopping cart-style site was not feasible. We settled on a basic gallery with a contact form to request more info. We decided that [eleventy](http://11ty.dev) would be a great fit for the site, allowing for simple maintenance without much overhead, making for a speedy site.
 
 ### Reaction
 
-What we began with went through several iterations before going live, but the final product was exactly what she wanted. We even ordered her business cards based on the branding we created for her. She is quite pleased with her
+What we began with went through several iterations before going live, but the final product was exactly what she wanted. We even ordered her business cards based on the branding we created for her. She is quite pleased with her new online presence.

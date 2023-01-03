@@ -113,7 +113,8 @@ body {
   text-rendering: optimizeSpeed;
 }
 body.home {
-  background: var(--color-white) url(/images/rings.png) bottom 3em right/50vmin no-repeat fixed;
+  background: var(--color-white) url(/images/rings.png) bottom 3em right/50vmin
+    no-repeat fixed;
 }
 img,
 picture,
@@ -430,7 +431,11 @@ h1 {
 }
 .excerpt::after {
   inset-block-end: var(--height);
-  background: linear-gradient(to left, var(--color-white) 1em, hsl(var(--hsl-white) / 0));
+  background: linear-gradient(
+    to left,
+    var(--color-white) 1em,
+    hsl(var(--hsl-white) / 0)
+  );
 }
 
 .pagination {
@@ -465,11 +470,6 @@ h1 {
 
   box-shadow: 0 0px 1em -0.4em var(--color-black);
 }
-.card:hover {
-  rotate: none;
-  translate: none;
-  scale: none;
-}
 .card > * {
   padding-inline: var(--space-xs);
   padding-inline: 1em;
@@ -485,6 +485,7 @@ h1 {
   padding: 0;
   border: 0;
   opacity: 0.5;
+  mix-blend-mode: color-burn;
   background: var(--color-white);
 }
 .card header {
@@ -504,6 +505,7 @@ h1 {
   color: var(--color-black);
   --color-link: var(--color-white);
 }
+
 @media (min-width: 50em) {
   .card {
     transition: all 250ms ease-in-out;
@@ -514,6 +516,11 @@ h1 {
   .card:nth-of-type(2n) {
     rotate: -3deg;
     translate: 0 -2rem;
+  }
+  .card:hover {
+    rotate: none;
+    translate: none;
+    scale: none;
   }
 }
 
@@ -626,7 +633,8 @@ label {
   float: inline-end;
 }
 .glow {
-  text-shadow: 0 0 calc(1em / 16 * var(--glowsize, 1)) var(--glowcolor, currentColor);
+  text-shadow: 0 0 calc(1em / 16 * var(--glowsize, 1))
+    var(--glowcolor, currentColor);
 }
 .list-style-none {
   list-style-type: none;
