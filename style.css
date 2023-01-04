@@ -560,15 +560,15 @@ form {
   display: grid;
   gap: 1em 0.5em;
 }
-label {
-  margin-block-end: -1em;
+label + * {
+  display: block;
+}
+label + * + br {
+  display: none;
 }
 @media (min-width: 40em) {
   form {
     grid-template-columns: 5em 1fr;
-  }
-  label {
-    text-align: end;
   }
   button {
     grid-column: span 2;
@@ -694,11 +694,9 @@ label {
 body.home {
   --width: 60em;
 }
-form[data-hide='website'] :is(label[for='website'], #website) {
-    display:none
+form[data-hide="website"] :is(label[for="website"], #website) {
+  display: none;
 }
-
-
 
 @media print {
   *,
