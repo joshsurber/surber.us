@@ -694,6 +694,11 @@ label {
 body.home {
   --width: 60em;
 }
+form[data-hide='website'] :is(label[for='website'], #website) {
+    display:none
+}
+
+
 
 @media print {
   *,
