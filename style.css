@@ -558,7 +558,7 @@ button:hover,
 form {
   margin: var(--space-xl) auto;
   display: grid;
-  gap: 1em 0.5em;
+  gap: .5em ;
 }
 label + * {
   display: block;
