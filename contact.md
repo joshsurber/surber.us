@@ -27,7 +27,7 @@ Looking to hire me? You can text me (or call me, I guess) at [(321) J-SURBER](te
     placeholder="Message"
     required=""
   ></textarea>
-  <button type="submit">Send</button>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAAAB-rbby_nujQZGd"></div>
+  <div class="cf-turnstile mx-auto" data-sitekey="0x4AAAAAAAB-rbby_nujQZGd"></div>
+  <button type="submit">Send</button>
 </form>
