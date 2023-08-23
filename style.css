@@ -526,6 +526,8 @@ h1 {
 
 /* footer */
 .footer {
+  color: var(--color-white);
+  --color-link: var(--color-black);
   margin-block-start: var(--space-m, 1.5rem);
   padding: var(--space-xs, 1rem);
   box-shadow: 0 -2px 5px -3px var(--color-black);
@@ -558,7 +560,7 @@ button:hover,
 form {
   margin: var(--space-xl) auto;
   display: grid;
-  gap: .5em ;
+  gap: 0.5em;
 }
 label + * {
   display: block;
@@ -570,7 +572,8 @@ label + * + br {
   form {
     grid-template-columns: 5em 1fr;
   }
-  button, .cf-turnstile {
+  button,
+  .cf-turnstile {
     grid-column: span 2;
   }
 }
