@@ -486,8 +486,9 @@ h1 {
   padding: 0;
   border: 0;
   opacity: 0.5;
-  mix-blend-mode: color-burn;
   background: var(--color-white);
+  object-fit: cover;
+  filter: brightness(75%) contrast(75%);
 }
 .card header {
   background-color: var(--color-brand);
