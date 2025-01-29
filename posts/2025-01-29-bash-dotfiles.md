@@ -7,12 +7,14 @@ imageAlt: bash configuration on a screen with the Linux penguin sitting next to 
 
 I have had [my dotfiles](https://github.com/joshsurber/.files) on Github for a while now, but have been really messing with them lately. They contain a few really clever bits that I thought were worth going over. This will be a series, where I go over various sections of my dotfiles, with a highlight on anything that I find to be exceptionally useful, something I haven't seen very often, or anything I created myself and find myself quite proud of. Here are some of my favorite things from my [bash config](https://github.com/joshsurber/.files/blob/master/bash/.bash/).
 
-Jump to [aliases](#aliases),
+Jump to
+[aliases](#aliases),
 [env](#env),
 [functions](#functions),
 [logout](#logout),
 [profile](#profile),
-[source](#source)
+[source](#source),
+[conclusion](#conclusion)
 
 ```bash
 #! /bin/bash
@@ -46,7 +48,7 @@ These lines are not in the repo, but are my default bash configs in my home dire
 
 
 ```bash
-cd ~/.bash && ls
+$ ls ~/.bash
 aliases   env   functions   logout   profile   source
 ```
 
@@ -87,7 +89,7 @@ Here are some simple things that save me a couple of keys every time I run frequ
 [[ -x "$(command -v pacman)" ]] && alias i='sudo pacman -S'
 ```
 
-I alias some built-ins to better alternatives, but only if those alternatives are available. `fd` and `bat` have different names on Arch and Debian distros, so I work around that here too.
+I alias some built-ins to better alternatives, but only if those alternatives are available. `fd` and `bat` have different names on Arch and Debian distros, so I work around that here too. I also put in a single-key, distro-agnostic way to quickly install a package.
 
 ```bash
 [[ $TERM == 'xterm-kitty' ]]    && alias theme='kitty +kitten themes'
@@ -128,9 +130,7 @@ alias back='cd -'
 alias cdvi='cd ~/.config/nvim/'
 alias ..='cd ..'
 alias ...='cd ../..'
-```
 
-```bash
 # LS ALIASES
 alias cls="clear;ls"
 alias exa='exa --icons --color=always --group-directories-first'
@@ -138,6 +138,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 ```
+
+Here are some shortcuts to quickly move around the filesystem, and look around once I get somewhere. Remember that earlier, we aliased `ls` to `exa` if it was installed, so by aliasing `exa` here with default options, this will apply any time we run `ls`.
 
 ```bash
 # WEB DEV ALIASES
@@ -229,7 +231,7 @@ clone() {
 }
 ```
 
-Clone a git repo intellegently. If I pass in a single repo name (like `.files`) it will use SSH to clone that repo from my account so I can push changes. If I pass the username as well (such as `echasnovski/mini.nvim`) it will be cloned via HTTPS, not allowing changes. Seems obvious but I've never seen this in anyone else's dotfiles before. Will not work with GitLab or BitBucket or anything other than GitHub, but if you need this feel free to customize in your own dotfiles.
+Clone a git repo intellegently. If I pass in a single repo name (like `.files`) it will use SSH to clone that repo from my account so I can push changes. If I pass the username as well (such as `echasnovski/mini.nvim`) it will be cloned via HTTPS. Seems obvious but I've never seen this in anyone else's dotfiles before. Will not work with GitLab or BitBucket or anything other than GitHub, but if you need this feel free to customize in your own dotfiles.
 
 ```bash
 # Load static pws in yubibey call ykey [slot] [password]
@@ -291,4 +293,84 @@ up() {
 }
 ```
 
-Navigate up the file tree. Pass a number to go that many directories up. From `/one/two/three/four/five`, running `up 2` will leave you at `/one/two/three`
+Navigate up the file tree. Pass a number to go that many directories up. From /one/two/three/four/five, running `up 2` will leave you at /one/two/three
+
+<h3 id="logout">Logout</h3>
+
+```bash
+#!/bin/bash
+
+# Destroy the SSH agent on logout
+eval `ssh-agent -k`
+```
+
+<h3 id="profile">Profile</h3>
+
+```bash
+#!/bin/bash
+# COMMON APPS
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export PAGER=less
+export BROWSER=qutebrowser
+export TERMINAL=kitty
+export MENU=rofi
+```
+
+Here I list my default apps. The first five are pretty standard, though I do have `$VISUAL` aliased to `$EDITOR`, as I have never thought of a time I would want these to diverge. I created the `$MENU` so I can choose whether to use dmenu, rofi, or anything else in one place.
+
+```bash
+# PATHS
+export PATH=~/.local/bin:~/.cargo/bin:$PATH:/opt/*:/opt/*/bin
+export CDPATH=.:~
+```
+
+`$PATH` is where applications are searched for. I start with my personal scripts (which are in this repo), then anything I installed from cargo (rust repositories), then the system `$PATH,` then anything I have installed in `/opt`. This is normally just [XAMPP](http://apachefriends.org) and, on Debian systems, [Neovim](http://neovim.io), but if I were to start installing applications from the AUR, I could see a lot more items appearing in `/opt`. They will automatically be placed in my `$PATH` as well.
+
+```bash
+# FZF
+export FZF_DEFAULT_COMMAND="$FIND --type f --strip-cwd-prefix"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# CLIPMENU
+export CM_LAUNCHER=$MENU
+export CM_SELECTIONS=clipboard
+```
+
+Here are some config options for a couple of apps I use that don't require full config files.
+
+```bash
+source $HOME/.bashrc
+```
+
+<h3 id="source">source</h3>
+
+```bash
+#!/bin/bash
+# This file just sources all the other files I use to configure bash
+
+source ~/.bash/env
+source ~/.bash/aliases
+source ~/.bash/functions
+
+# Help find command to install if not available
+[[ -r /usr/share/doc/pkgfile ]] && source /usr/share/doc/pkgfile/command-not-found.bash
+
+# FZF
+[[ -e /usr/share/doc/fzf/examples/ ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
+[[ -e /usr/share/doc/fzf/ ]]          && source /usr/share/doc/fzf/exampleskey-bindings.bash 2> /dev/null && source /usr/share/doc/fzf/examplescompletion.bash
+[[ -e /usr/share/fzf/ ]]              && source /usr/share/fzf/key-bindings.bash && source /usr/share/fzf/completion.bash
+
+[ -x "$(command -v starship)" ] && eval "$(starship init bash)"
+[ -x "$(command -v starship)" ] && eval "$(starship completions bash)"
+[ -x "$(command -v pandoc)" ]   && eval "$(pandoc --bash-completion)"
+[ -x "$(command -v zoxide)" ]   && eval "$(zoxide init bash)"
+```
+
+This file just sources other files. It is called from .bashrc, and is used so I can only import one file, but still keep my aliases, functions, and environmental setup separate. It also calls several completion files used by various applications I use, if they exist.
+
+<h3 id="conclusion">Conclusion</h3>
+
+There you have it, my bash configs. Only five files in the repo, but a lot going on in those files. By separating them like this, it is easy to keep everything organized, and to find specific parts I may be looking for. I went over a lot here (and probably should have broken this into three articles) but hope that someone gets inspiration from something in here to customize their own environment. Or, at least, finds something useful to steal.
+
+The next installment in this series will most likely cover my config for Kitty, my current terminal of choice. Stay tuned, and thanks for reading!
