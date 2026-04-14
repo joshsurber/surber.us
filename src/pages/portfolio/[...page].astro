@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/Base.astro';
+import { getPostDate, toUTCString, getProjectUrl, imgUrl } from '../../utils/content';
+
+export async function getStaticPaths({ paginate }) {
+  const projects = (await getCollection('projects')).sort(
+    (a, b) => (a.data.pride || 0) - (b.data.pride || 0)
+  );
+  const result = paginate(projects, { pageSize: 5 });
+  return result.map(p => {
+    if (p.params.page === undefined) return p;
+    return { ...p, params: { page: `page/${p.params.page}` } };
+  });
+}
+
+const { page } = Astro.props;
+---
+<BaseLayout title="Portfolio" bodyClass="portfolio">
+    {page.data.map(async (project) => {
+        const date = getPostDate(project);
+        return (
+            <article class="article | flow">
+              <header>
+                <h2>
+                  <a href={getProjectUrl(project)} class="brand">{project.data.title}</a>
+                </h2>
+                Posted
+                <time datetime={date.toISOString()}>
+                  {toUTCString(date)}
+                </time>
+              </header>
+              <a href={getProjectUrl(project)} class="brand">
+                <img src={imgUrl(project.data.image)} alt={project.data.imageAlt} loading="lazy" decoding="async" />
+              </a>
+
+              <p>{project.data.overview}</p>
+            </article>
+        );
+    })}
+
+    {page.lastPage > 1 && (
+        <nav class="pagination">
+          <a href="/portfolio/">First</a> ▪ 
+          {page.url.prev ? <><a href={page.url.prev.replace('/portfolio/1', '/portfolio/')}>Previous</a> ▪ </> : null} 
+          Page: {page.currentPage} of {page.lastPage} 
+          {page.url.next ? <> ▪ <a href={page.url.next.replace('/portfolio/', '/portfolio/page/')}>Next</a></> : null} ▪
+          <a href={`/portfolio/${page.lastPage > 1 ? `page/${page.lastPage}` : ''}`}>Last</a>
+        </nav>
+    )}
+</BaseLayout>

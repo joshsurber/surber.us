@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/Base.astro';
+---
+<BaseLayout title="Contact" bodyClass="contact">
+    <h2>Contact</h2>
+    <p>Looking to hire me? You can text me (or call me, I guess) at <a href="tel:3215787237">(321) J-SURBER</a> or email me below. Just remember my <a href="/legal">email policy</a>.</p>
+
+    <form action="https://submit-form.com/dbPIMBIf" data-hide="website">
+    <input
+        type="hidden"
+        name="_redirect"
+        value="https://surber.us/contact/thanks"
+      />
+      <label for="name">Name</label>
+      <input type="text" id="name" name="_email.from" placeholder="Name" required="" /><br>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_email.replyto" placeholder="Email" required="" /><br>
+      <label for="website">Leave this blank</label>
+      <input type="text" id="website" name="website" placeholder="Leave this blank" tabindex="-1" autocomplete="off" /><br>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="_email.subject" placeholder="Subject" required="" /><br>
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Message"
+        required=""
+      ></textarea>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      <div class="cf-turnstile mx-auto" data-sitekey="0x4AAAAAAAB-rbby_nujQZGd"></div>
+      <button type="submit">Send</button>
+    </form>
+</BaseLayout>

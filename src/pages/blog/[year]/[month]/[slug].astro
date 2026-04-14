@@ -1,0 +1,60 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../../layouts/Base.astro';
+import { getPostDate, toUTCString, getPostUrl, imgUrl } from '../../../../utils/content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).sort(
+    (a, b) => getPostDate(a).getTime() - getPostDate(b).getTime()
+  );
+  
+  return posts.map((post, index) => {
+    const date = getPostDate(post);
+    const year = String(date.getUTCFullYear());
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const slug = post.id.slice(11).replace(/\.md$/, '');
+    return {
+      params: { year, month, slug },
+      props: { 
+        post,
+        prevPost: index > 0 ? posts[index - 1] : null,
+        nextPost: index < posts.length - 1 ? posts[index + 1] : null
+      },
+    };
+  });
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const { Content } = await render(post);
+const date = getPostDate(post);
+---
+<BaseLayout title={post.data.title} bodyClass="post">
+    <article class="article | flow">
+      <header>
+        <h1>{post.data.title}</h1>
+        Posted
+        <time datetime={date.toISOString()}>
+          {toUTCString(date)}
+        </time>
+      </header>
+
+      <div class="body">
+        {post.data.image && <img src={imgUrl(post.data.image)} alt={post.data.imageAlt} loading="lazy" decoding="async" />}
+        <Content />
+      </div>
+    </article>
+
+    <nav class="pagination">
+      {prevPost && (
+        <>
+          Previous: <a href={getPostUrl(prevPost)}>{prevPost.data.title}</a>
+          {nextPost && " ● "}
+        </>
+      )}
+      {nextPost && (
+        <>
+          Next: <a href={getPostUrl(nextPost)}>{nextPost.data.title}</a>
+        </>
+      )}
+    </nav>
+</BaseLayout>

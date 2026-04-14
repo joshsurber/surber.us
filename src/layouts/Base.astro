@@ -1,0 +1,80 @@
+---
+import site from '../data/site.json';
+import '../assets/style.css';
+import '../assets/prism-gruvbox-dark.css';
+
+const { title, bodyClass } = Astro.props;
+const { pathname } = Astro.url;
+
+const isHome = pathname === '/' || pathname === '/index.html';
+const isPortfolio = pathname.startsWith('/portfolio');
+const isBlog = pathname.startsWith('/blog');
+const isContact = pathname.startsWith('/contact');
+
+const year = new Date().getFullYear();
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{title ? `${title} – ` : ''}{site.name}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="icon"
+      href="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=32"
+      sizes="32x32"
+    />
+    <script src="../assets/script.js"></script>
+  </head>
+
+  <body class={bodyClass}>
+    <a href="#nav" class="skiplink">Skip to navigation</a>
+    <header id="header" class="header | brandbg white">
+      <h1>
+        <a href="/" class="sitename | black nohover">{site.name}</a>
+        <a href="/" class="sitedesc | white nohover">{site.description}</a>
+      </h1>
+    </header>
+
+    <a href="#main" class="skiplink">Skip to main content</a>
+    <nav id="nav" class="mainnav | brandbg">
+      <ul class="flex | list-style-none">
+        <li aria-current={isHome ? 'page' : undefined}><a href="/">Home</a></li>
+        <li aria-current={isPortfolio ? 'page' : undefined}><a href="/portfolio">Portfolio</a></li>
+        <li aria-current={isBlog ? 'page' : undefined}><a href="/blog">Blog</a></li>
+        <li aria-current={isContact ? 'page' : undefined}><a href="/contact">Contact</a></li>
+        <li class="logo">
+          <a href="/" class="nohover">
+            <img
+              src="https://www.gravatar.com/avatar/8fcc91dcab042562a44f1707d6f32cc2?size=400"
+              alt="Home"
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main" class="main container">
+      <slot />
+    </main>
+
+    <footer
+      id="footer"
+      class="footer | flex space-between flex-end | brandbg"
+      style="--gap: 0.25em 1em"
+      data-cols="2"
+      data-nonresponsive
+    >
+      <ul class="contact | flex | list-style-none">
+        <li><a href="https://www.linkedin.com/in/joshsurber/">LinkedIn</a></li>
+        <li><a href="https://github.com/joshsurber">Github</a></li>
+        <li><a href="/legal">Legal</a></li>
+      </ul>
+      <div>© 1999 – {year} Josh Surber</div>
+    </footer>
+  </body>
+</html>

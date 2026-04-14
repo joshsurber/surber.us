@@ -1,5 +1,8 @@
-_site
+# Astro
 node_modules
-package-lock.json
-.cache
-img
+dist
+.astro
+
+# Legacy
+legacy
+_site

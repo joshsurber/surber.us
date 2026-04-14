@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/Base.astro';
+import { getPostDate, toUTCString, getPostUrl, imgUrl } from '../../utils/content';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection('posts')).sort(
+    (a, b) => getPostDate(b).getTime() - getPostDate(a).getTime()
+  );
+  const result = paginate(posts, { pageSize: 5 });
+  return result.map(p => {
+    if (p.params.page === undefined) return p;
+    return { ...p, params: { page: `page/${p.params.page}` } };
+  });
+}
+
+const { page } = Astro.props;
+---
+<BaseLayout title="Blog" bodyClass="blog">
+    {page.data.map(async (post) => {
+        const date = getPostDate(post);
+        const { Content } = await render(post);
+        return (
+            <article class="article | flow">
+              <header>
+                <h2><a href={getPostUrl(post)} class="brand">{post.data.title}</a></h2>
+                Posted
+                <time datetime={date.toISOString()}>
+                  {toUTCString(date)}
+                </time>
+              </header>
+
+              <div class="body">
+                {post.data.image && <img src={imgUrl(post.data.image)} alt={post.data.imageAlt} loading="lazy" decoding="async" />}
+                <Content />
+              </div>
+            </article>
+        );
+    })}
+
+    <nav class="pagination">
+      <a href="/blog/">First</a> ▪ 
+      {page.url.prev ? <><a href={page.url.prev.replace('/blog/1', '/blog/')}>Previous</a> ▪ </> : null} 
+      Page: {page.currentPage} of {page.lastPage} 
+      {page.url.next ? <> ▪ <a href={page.url.next.replace('/blog/', '/blog/page/')}>Next</a></> : null} ▪
+      <a href={`/blog/${page.lastPage > 1 ? `page/${page.lastPage}` : ''}`}>Last</a>
+    </nav>
+</BaseLayout>

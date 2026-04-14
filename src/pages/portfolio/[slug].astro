@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/Base.astro';
+import { getPostDate, toUTCString, imgUrl } from '../../utils/content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => {
+    const slug = project.id.replace(/\.md$/, '');
+    return {
+      params: { slug },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const date = getPostDate(project);
+---
+<BaseLayout title={project.data.title} bodyClass="portfolio">
+    <div class="flow">
+      <h2>{project.data.title}</h2>
+      {project.data.image && project.data.imageAlt && (
+        project.data.before && project.data.beforeAlt ? (
+          <div class="flex | flex-end">
+            <picture>
+              <img src={imgUrl(project.data.before)} alt={project.data.beforeAlt} loading="lazy" decoding="async" />
+              <caption>
+                Before
+              </caption>
+            </picture>
+            <picture>
+              <img src={imgUrl(project.data.image)} alt={project.data.imageAlt} loading="lazy" decoding="async" />
+              <caption>
+                After
+              </caption>
+            </picture>
+          </div>
+        ) : (
+          <img src={imgUrl(project.data.image)} alt={project.data.imageAlt} loading="lazy" decoding="async" />
+        )
+      )}
+      <Content />
+    </div>
+</BaseLayout>
